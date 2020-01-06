@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class ="form" style = "color: rgb(255,255,255);">
+    <div class="d-flex justify-content-center align-items-center container">
+        <div class="form-group row">
+            <div class="p-5 bg-sucess">
+                <div class="text-center">
+                    <p class = "title" style = "color: rgb(255,255,255);"></p>
+
+                    <h5>Please log in to play!</h5>
+                    <form action="/login" method="POST">
+
+                        <label for name="mail" class="col-md-auto col-form-label">E-post</label>
+                        <input type="text" class="form-control" name="mail" placeholder="E-mail">
+                        <label for name="username" class="col-md-auto col-form-label">Username</label>
+                        <input type="text" class="form-control" name="username" placeholder="Your username">
+                        <label for password="password" class="col-sm col-form-label">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Your password">
+
+
+                        <div class="col-sm-auto"><div class="p-2 bg-sucess">
+                            <input type="submit" value="Login"/>
+                        </div>
+                        </div>
+                        <p><h5>Not a member? Sign up <a href="/signup" class="link" style = "color: rgb(255,255,255);">here</a></h5></p></form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
