@@ -11,10 +11,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+@Controller
 public class loginController {
 
-    @Autowired
+   // @Autowired
     private userRepository repository;
+
+@GetMapping("/spel")
+public String spel(){
+    return "startpage";
+}
 
     @GetMapping("/")
     public String redirect(){
@@ -26,7 +32,7 @@ public class loginController {
         UserInfo user = (UserInfo) session.getAttribute("userkey");
 
         if (user != null && user.getLoggedIn()) {
-            return "redirect:/grid";
+            return "redirect:/startpage";
         } else {
 
             return "signup";
@@ -52,9 +58,8 @@ public class loginController {
         UserInfo user = (UserInfo) session.getAttribute("userkey");
 
         if (user != null && user.getLoggedIn()) {
-            return "redirect:/grid";
+            return "redirect:/startpage";
         } else {
-
 
             return "login";
         }
@@ -69,7 +74,7 @@ public class loginController {
         if (user.getLoggedIn()) {
             session.setAttribute("userkey", user);
 
-            return "redirect:/grid";
+            return "redirect:/startpage";
         } else {
             return "login";
         }
