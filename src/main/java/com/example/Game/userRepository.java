@@ -21,16 +21,16 @@ public class userRepository {
 
         }
 
-        public UserInfo checkLogin (String name, String password) {
-            for (UserInfo uInfo : users) {
-                if (uInfo.getUserName().equalsIgnoreCase(name) && uInfo.getPassword().equalsIgnoreCase(password)) {
-                    uInfo.setLoggedIn(true);
-                    return uInfo;
-                }
-            }
-
-            return null;
-        }
+//        public UserInfo checkLogin (String name, String password) {
+//            for (UserInfo uInfo : users) {
+//                if (uInfo.getUserName().equalsIgnoreCase(name) && uInfo.getPassword().equalsIgnoreCase(password)) {
+//                    uInfo.setLoggedIn(true);
+//                    return uInfo;
+//                }
+//            }
+//
+//            return null;
+//        }
 
         public void setUserLowScore(int count) {
             userLowScore.add(count);

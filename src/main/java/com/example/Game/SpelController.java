@@ -1,5 +1,6 @@
 package com.example.Game;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,7 +9,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
 import javax.validation.Valid;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,12 +33,13 @@ public class SpelController {
         return "familjespel";
     }
 
-    @GetMapping("/addSpel")
-    String form(Model model) {
-        model.addAttribute("spel", new Spel());
+//    @GetMapping("/addSpel")
+//    String form(Model model) {
+//        model.addAttribute("spel", new Spel());
+//
+//        return "addSpel";
+//    }
 
-        return "addSpel";
-    }
     @PostMapping("/addSpel")
     String addSpel (HttpSession session, Model model, @ModelAttribute Spel spel) {
         model.addAttribute("spel", spel);
@@ -52,4 +59,5 @@ public class SpelController {
     public String logout(){
         return "startpage";
     }
+
 }
