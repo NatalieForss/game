@@ -25,6 +25,10 @@ public class Spel {
     public Spel(String s) {
     }
 
+    public Spel() {
+
+    }
+
     public String getName() {
         return name;
     }

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
@@ -25,16 +26,17 @@ public class SpelController {
         return "familjespel";
     }
 
+    @GetMapping("/addSpel")
+    String form(Model model) {
+        model.addAttribute("spel", new Spel());
+
+        return "addSpel";
+    }
     @PostMapping("/addSpel")
-    String addSpel (HttpSession session, Model model, @Valid Spel spel, BindingResult bindingResult) {
-
-        if (bindingResult.hasErrors()) {
-
-            return "addSpel";
-        }
+    String addSpel (HttpSession session, Model model, @ModelAttribute Spel spel) {
         model.addAttribute("spel", spel);
 
-        List<Spel> spels = (List<Spel>)session.getAttribute("spel");
+        List<Spel> spels = (List<Spel>)session.getAttribute("spels");
         if (spels == null) {
             spels = new ArrayList<>();
             session.setAttribute("spels", spels);
@@ -42,8 +44,7 @@ public class SpelController {
 
         spels.add(spel);
 
-        return "addSpel";
+        return "addRestaurant";
     }
-
 
 }
