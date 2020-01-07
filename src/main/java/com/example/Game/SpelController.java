@@ -19,6 +19,7 @@ public class SpelController {
         return "startpage";
     }
 
+
     @GetMapping("/familjespel")
     public String familjespel(){
         // model.addAttribute("familjespel")
@@ -45,5 +46,8 @@ public class SpelController {
         return "addSpel";
     }
 
-
+    @GetMapping("/logout")
+    public String logout(){
+        return "startpage";
+    }
 }
