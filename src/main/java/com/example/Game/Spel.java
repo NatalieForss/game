@@ -17,6 +17,14 @@ public class Spel {
         this.category = category;
     }
 
+    public Spel(String name, int id) {
+        this.name = name;
+        Id = id;
+    }
+
+    public Spel(String s) {
+    }
+
     public String getName() {
         return name;
     }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    <title>Lägga till Spel</title>
+</head>
+<body>
+<div class="addSpel">
+    &nbsp;<span><a href="/">Tillbaka till startsidan</a></span>
+    &nbsp;<center><h1 id="headeraddspel"> Lägg till spel</h1></center></div>
+
+<center><form action="/addSpel" method="POST" th:object="${spel}">
+    <input type="text" placeholder="Namn på spel" th:field="*{name}"/><br>
+</form>
+</center>
+</body>
+</html>
