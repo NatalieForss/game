@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -11,6 +11,20 @@
           crossorigin="anonymous">
 </head>
 <body>
+<form action="/startpage" method="POST">
+    <div class="navbar navbar-light" style="background-color: black">
+        <a class="navbar-brand" href="#">
+            <span style="color:#CEE2B3" th:text="Spel"></span>
+            <a style="color:#CEE2B3 " href="/logout">Logga ut </a></button>
+        </a></div></form>
+
+<form action="/startpage" method="POST">
+    <div class="navbar navbar-light" style="background-color: black">
+        <a class="navbar-brand" href="#">
+            <span style="color:#CEE2B3" th:text="Spel"></span>
+            <a style="color:#CEE2B3 " href="/logout">Tillbaka till startsida </a></button>
+        </a></div></form>
+
 
 
 <div class ="form" style = "color: black;">
