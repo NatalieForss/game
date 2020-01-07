@@ -1,28 +1,37 @@
 package com.example.Game;
 
 public class Spel {
+    private int id;
     private String name;
-    private int Id;
     private boolean status;
-    private String place;
+    private String location;
     private String typeOfExchange;
     private String category;
 
-    public Spel(String name, int id, boolean status, String place, String typeOfExchange, String category) {
+
+    public Spel(int id, String name, boolean status, String location, String typeOfExchange, String category) {
+        this.id = id;
         this.name = name;
-        Id = id;
         this.status = status;
-        this.place = place;
+        this.location = location;
         this.typeOfExchange = typeOfExchange;
         this.category = category;
     }
 
     public Spel(String name, int id) {
         this.name = name;
-        Id = id;
+        this.id = id;
     }
 
     public Spel(String s) {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -33,14 +42,6 @@ public class Spel {
         this.name = name;
     }
 
-    public int getId() {
-        return Id;
-    }
-
-    public void setId(int id) {
-        Id = id;
-    }
-
     public boolean isStatus() {
         return status;
     }
@@ -49,12 +50,12 @@ public class Spel {
         this.status = status;
     }
 
-    public String getPlace() {
-        return place;
+    public String getLocation() {   
+        return location;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getTypeOfExchange() {
