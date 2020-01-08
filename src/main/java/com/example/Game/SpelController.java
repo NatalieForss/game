@@ -29,12 +29,19 @@ public class SpelController {
     }
 
 
+    @GetMapping("/barnspel")
+    public String barnspel(){
+        // model.addAttribute("barnspel")
+        return "barnspel";
+    }
+
     @GetMapping("/familjespel")
     public String familjespel(){
         // model.addAttribute("familjespel")
         return "familjespel";
     }
 
+<<<<<<< HEAD
    @GetMapping("/addSpel")
   String form(HttpSession session, Model model) {
        model.addAttribute("spel", new Spel());
@@ -45,6 +52,38 @@ public class SpelController {
        }
        return "addSpel";
    }
+=======
+    @GetMapping("/fragesport")
+    public String fragesport(){
+        // model.addAttribute("fragesport")
+        return "fragesport";
+    }
+
+    @GetMapping("/musik")
+    public String musik(){
+        // model.addAttribute("musik")
+        return "musik";
+    }
+
+    @GetMapping("/pussel")
+    public String pussel(){
+        // model.addAttribute("pussel")
+        return "pussel";
+    }
+
+    @GetMapping("/strategispel")
+    public String strategispel(){
+        // model.addAttribute("strategispel")
+        return "strategispel";
+    }
+
+//    @GetMapping("/addSpel")
+//    String form(Model model) {
+//        model.addAttribute("spel", new Spel());
+//
+//        return "addSpel";
+//    }
+>>>>>>> 6d46f325723d73e6f09d52b2efefdb07ff61e33f
 
     @PostMapping("/addSpel")
     String addSpel (HttpSession session, Model model, @ModelAttribute Spel spel) {
