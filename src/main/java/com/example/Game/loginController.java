@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class loginController {
 
     @Autowired
-    private UserInfo userInfo;
+    private Metods metods;
 
 
     @GetMapping("/")
@@ -24,29 +26,6 @@ public class loginController {
         return "redirect:/login";
     }
 
-    @GetMapping("/signup")
-    public String signup(HttpSession session) {
-        UserInfo user = (UserInfo) session.getAttribute("userkey");
-
-        if (user != null && user.isLoggedIn()) {
-            return "redirect:/startpage";
-        } else {
-
-            return "signup";
-        }
-    }
-
-    @PostMapping("/signup")
-    public String signupPost(@Valid UserInfo user, BindingResult result, HttpSession session, Model model) {
-        if(result.hasErrors()) {
-            model.addAttribute("user", user);
-            return "signup";
-        }
-
-        repository.saveUser(user);
-
-        return "login";
-    }
 
     @GetMapping("/login")
     String getLogin() {
@@ -56,7 +35,7 @@ public class loginController {
     @PostMapping("/login")
     String postLogin(HttpSession session, Model model, @RequestParam String username, @RequestParam String password) {
 
-        UserInfo userInDatabase = userInfo.getUser(username);
+        UserInfo userInDatabase = metods.getUser(username);
 
         if(userInDatabase != null){
             if(userInDatabase.getPassword().equals(password)){
@@ -72,29 +51,40 @@ public class loginController {
         model.addAttribute("noSuchMember", true);
         return "login";
     }
+    @GetMapping("/registrering")
+    String addUser(Model model){
+        model.addAttribute("user", new UserInfo());
 
-//    @GetMapping("/login")
-//    public String login(HttpSession session) {
-//        UserInfo user = (UserInfo) session.getAttribute("userkey");
-//
-//        if (user != null && user.isLoggedIn()) {
-//            return "redirect:/startpage";
-//        } else {
-//
-//            return "login";
-//        }
-//    }
-//
-//    @PostMapping("/login")
-//    public String loginPost(HttpSession session, @RequestParam String username, @RequestParam String password) {
-////       UserInfo userInfo = repository.getUser();
-//        UserInfo user = repository.checkLogin(username, password);
-//        if (user != null && user.isLoggedIn()) {
-//            session.setAttribute("userkey", user);
-//            return "redirect:/startpage";
-//        } else {
-//            return "login";
-//        }
-//    }
+        return "signup";
+    }
+
+    @PostMapping("/registrering")
+    String addUser(HttpSession session, Model model, @Valid UserInfo user, BindingResult result) {
+        if (result.hasErrors()) {
+
+
+            return "signup";
+        }
+
+        if(metods.getUser(user.getUserName())!=null){
+            model.addAttribute("userExists", true);
+            return "signup";
+        }
+
+        model.addAttribute("user", user);
+        metods.addUser(user);
+
+        List<UserInfo> users = (List<UserInfo>)session.getAttribute("users");
+        if (users == null) {
+            users = new ArrayList<>();
+            session.setAttribute("users", users);
+        }
+       users.add(user);
+        model.addAttribute("noErrors", true);
+
+        return "signup";
+    }
+
+
 }
 

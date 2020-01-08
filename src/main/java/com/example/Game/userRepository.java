@@ -33,7 +33,7 @@ public class userRepository {
     }
 
     //add user to database
-    public void saveUser(UserInfo userInfo) {
+    public void addUser(UserInfo userInfo) {
 
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("INSERT INTO User(UserName, Password, Mail, Rating) VALUES(?,?,?,?)")) {
@@ -64,7 +64,7 @@ public class userRepository {
     }
 
     //get user by username from database
-    public static UserInfo getUserByUsername(String username){
+    public UserInfo getUserByUsername(String username){
 
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();

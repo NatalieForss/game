@@ -1,12 +1,21 @@
 package com.example.Game;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
+
 
 public class UserInfo {
+    @Autowired
+    userRepository userRepository;
 
         private int id;
+    @Size(min=5, max=30)
         private String userName;
+    @Size(min=5, max=30)
         private String password;
+    @Email
         private String mail;
         private Double rating;
         private boolean isLoggedIn;
@@ -29,6 +38,8 @@ public class UserInfo {
         this.userName = userName;
         this.password = password;
     }
+
+
 
     public int getId() {
         return id;
@@ -78,8 +89,6 @@ public class UserInfo {
         isLoggedIn = loggedIn;
     }
 
-    public UserInfo getUser(String username) {
-        return userRepository.getUserByUsername(username);
-    }
+
 }
 
