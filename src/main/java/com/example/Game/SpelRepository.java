@@ -26,6 +26,15 @@ public class SpelRepository {
     public SpelRepository() {
         spelList = new ArrayList<Spel>();
     }
+    public Spel getSpel(int id) {
+        for (Spel spel : spelList) {
+            if (spel.getId() == id) {
+                return spel;
+            }
+        }
+        return null;
+    }
+
 
     public Spel rsSpel(ResultSet rs) throws SQLException {
         Spel spel = new Spel();
@@ -54,9 +63,7 @@ public class SpelRepository {
 
 
 
-    private void addSpel(Spel spelToAdd) {
-        spelList.add(spelToAdd);
-    }
+
 
         @GetMapping("/dbtest")
         public boolean testDB () throws SQLException {

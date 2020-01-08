@@ -11,19 +11,23 @@
           crossorigin="anonymous">
 </head>
 <body>
-<form action="/startpage" method="POST">
+    <form action="/addSpel" method="POST" th:object="${spel}">
+
+
+
     <div class="navbar navbar-light" style="background-color: black">
         <a class="navbar-brand" href="#">
             <span style="color:#CEE2B3" th:text="Spel"></span>
             <a style="color:#CEE2B3 " href="/logout">Logga ut </a></button>
-        </a></div></form>
+        </a>
+    </div>
 
-<form action="/startpage" method="POST">
     <div class="navbar navbar-light" style="background-color: black">
         <a class="navbar-brand" href="#">
             <span style="color:#CEE2B3" th:text="Spel"></span>
             <a style="color:#CEE2B3 " href="/logout">Tillbaka till startsida </a></button>
-        </a></div></form>
+        </a>
+    </div>
 
 
 
@@ -34,77 +38,84 @@
                 <div class="text-center">
                     <p class = "title" style = "color: black;"><h2>Lägg upp spel </h2></p>
 
-                    <form action="/addSpel" method="POST">
                         <label for kategori="category" class="col-md-auto col-form-label"><h4>Spel namn</h4></label>
-                        <input type="text" class="form-control" name="name" placeholder="Spel namn">
+                        <input type="text" class="form-control" name="name" placeholder="Spel namn" th:field="*{name}">
 
-                    </form>
                     <br>
                         <h4> Välj kategori</h4>
                             <div class="form-group">
 
-                                <select class="form-control" id="sel1">
-                                    <option>Barnspel</option>
-                                    <option>Familjespel</option>
-                                    <option>Frågesportsspel</option>
-                                    <option>Musikspel</option>
-                                    <option>Pussel</option>
-                                    <option>Strategispel</option>
+                                <select class="form-control" id="sel1" th:field="*{category}">
+                                    <option value="Barnspel">Barnspel</option>
+<!--
+                                    <option value="Familjespel">Familjespel</option>
+                                    <option value="Frågesportsspel">Frågesportsspel</option>
+                                    <option value="Musikspel">Musikspel</option>
+                                    <option value="Pussel">Pussel</option>
+                                    <option value="Strategispel">Strategispel</option>
+                                    -->
+
                                 </select>
+
                     <br>
 
                                 <h4>Status</h4>
-                                <form>
                                     <div class="form-group">
-                                        <select class="form-control" id="sel2">
-                                            <option>Skänka bort</option>
-                                            <option>Låna ut</option>
+                                        <select class="form-control" id="sel2" th:field="*{status}">
+<!--
+                                            <option value="Skänka bort">Skänka bort</option>
+                                            <option value="Låna ut">Låna ut</option>-->
+
                                         </select>
                                         <br>
 
                                         <h4>Var kan spelet lämnas ut?</h4>
 
-                                        <form>
                                             <div class="form-group">
-                                                <select class="form-control" id="sel3">
-                                                    <option>Botkyrka</option>
-                                                    <option>Danderyd</option>
-                                                    <option>Ekerö</option>
-                                                    <option>Haninge</option>
-                                                    <option>Huddinge</option>
-                                                    <option>Järfälla</option>
-                                                    <option>Lidingö</option>
-                                                    <option>Nacka</option>
-                                                    <option>Norrtälje</option>
-                                                    <option>Nykvarn</option>
-                                                    <option>Nynäshamn</option>
-                                                    <option>Salem</option>
-                                                    <option>Sigtuna</option>
-                                                    <option>Sollentuna</option>
-                                                    <option>Solna</option>
-                                                    <option>Stockholm</option>
-                                                    <option>Sundbyberg</option>
-                                                    <option>Södertälje</option>
-                                                    <option>Tyresö</option>
-                                                    <option>Täby</option>
-                                                    <option>Upplands-Bro</option>
-                                                    <option>Upplands Väsby</option>
-                                                    <option>Vallentuna</option>
-                                                    <option>Vaxholm</option>
-                                                    <option>Värmdö</option>
-                                                    <option>Österåker</option>
+                                                <select class="form-control" id="sel3" th:field="*{location}">
+
+                                                 <!--   <option value="Botkyrka">Botkyrka</option>
+                                                    <option value="Danderyd">Danderyd</option>
+                                                    <option value="Ekerö">Ekerö</option>
+                                                    <option value="Haninge">Haninge</option>
+                                                    <option value="Huddinge">Huddinge</option>
+                                                    <option value="Järfälla">Järfälla</option>
+                                                    <option value="Lidingö">Lidingö</option>
+                                                    <option value="Nacka">Nacka</option>
+                                                    <option value="Norrtälje">Norrtälje</option>
+                                                    <option value="Nykvarn">Nykvarn</option>
+                                                    <option value="Nykvarn">Nykvarn</option>
+                                                    <option value="Salem">Salem</option>
+                                                    <option value="Sigtuna">Sigtuna</option>
+                                                    <option value="Sollentuna">Sollentuna</option>
+                                                    <option value="Solna">Solna</option>
+                                                    <option value="Stockholm">Stockholm</option>
+                                                    <option value="Sundbyberg">Sundbyberg</option>
+                                                    <option value="Södertälje">Södertälje</option>
+                                                    <option value="Tyresö">Tyresö</option>
+                                                    <option value="Täby">Täby</option>
+                                                    <option value="Upplands-Bro">Upplands-Bro</option>
+                                                    <option value="Upplands Väsby">Upplands Väsby</option>
+                                                    <option value="Vallentuna">Vallentuna</option>
+                                                    <option value="Vaxholm">Vaxholm</option>
+                                                    <option value="Värmdö">Värmdö</option>
+                                                    <option value="Österåker">Österåker</option>-->
+
                                                 </select>
                                                 <br>
-                                                <a href="#" class="btn btn-primary">Lägga upp</a>
+                                                <input type="submit" class="btn btn-primary" value="Lägga upp"></input>
 
-                </div>
-                        </form></div>
-                        </form></div>
-                    </form></div>
+
+
+
+                </div></div>
+            </div>
+
             </div>
         </div>
     </div>
 </div>
-
+</div>
+    </form>
 </body>
 </html>

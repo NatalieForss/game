@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -20,30 +20,35 @@
         <a class="navbar-brand" href="#">
             <span style="color:#CEE2B3" th:text="Spel"></span>
             <a style="color:#CEE2B3 " href="/logout">Logga ut </a></button>
+            <a style="color:#CEE2B3 " href="/addSpel">Lägg upp spel </a></button>
         </a></div></form>
 
 
 
 <div class="row">
     <div class="column">
-        <img src="pussel1.jpg" alt="Pussel" style="width:100%">
+        <p><a href="/pussel">Pussel</a></p>
+        <img src="pussel1.jpg" alt="Pussel" class="img-thumbnail">
     </div>
     <div class="column">
-        <a href="/">Strategispel</a>
-        <img src="strategi.jpg" alt="Strategi" style="width:100%">
+        <p><a href="/strategispel">Strategispel</a></p>
+        <img src="strategi.jpg" alt="Strategi" class="img-thumbnail">
     </div>
     <div class="column">
-        <a href="/familjespel">Familjespel</a>
-        <img src="familjespel.jpg" alt="Familjespel" style="width:100%">
+        <p><a href="/familjespel">Familjespel</a></p>
+        <img src="familjespel.jpg" alt="Familjespel" class="img-thumbnail">
     </div>
     <div class="column">
-        <img src="fragesport.jpg" alt="Fragesport" style="width:100%">
+        <p><a href="/fragesport">Frågesport</a></p>
+        <img src="fragesport.jpg" alt="Fragesport" class="img-thumbnail">
     </div>
     <div class="column">
-        <img src="musik.jpg" alt="Musik" style="width:100%">
+        <p><a href="/musik">Musik</a></p>
+        <img src="musik.jpg" alt="Musik" class="img-thumbnail">
     </div>
     <div class="column">
-        <img src="barnspel.jpg" alt="Barnspel" style="width:100%">
+        <p><a href="/barnspel">Barnspel</a></p>
+        <img src="barnspel.jpg" alt="Barnspel" class="img-thumbnail">
     </div>
 </div>
 

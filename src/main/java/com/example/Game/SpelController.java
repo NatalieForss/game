@@ -20,6 +20,8 @@ import java.util.List;
 
 @Controller
 public class SpelController {
+    @Autowired
+    SpelRepository spelRepository;
 
     @GetMapping("/spel")
     public String spel(){
@@ -27,10 +29,52 @@ public class SpelController {
     }
 
 
+    @GetMapping("/barnspel")
+    public String barnspel(){
+        // model.addAttribute("barnspel")
+        return "barnspel";
+    }
+
     @GetMapping("/familjespel")
     public String familjespel(){
         // model.addAttribute("familjespel")
         return "familjespel";
+    }
+
+<<<<<<< HEAD
+   @GetMapping("/addSpel")
+  String form(HttpSession session, Model model) {
+       model.addAttribute("spel", new Spel());
+       if(session.getAttribute("userName")!=null){
+
+
+           return "addSpel";
+       }
+       return "addSpel";
+   }
+=======
+    @GetMapping("/fragesport")
+    public String fragesport(){
+        // model.addAttribute("fragesport")
+        return "fragesport";
+    }
+
+    @GetMapping("/musik")
+    public String musik(){
+        // model.addAttribute("musik")
+        return "musik";
+    }
+
+    @GetMapping("/pussel")
+    public String pussel(){
+        // model.addAttribute("pussel")
+        return "pussel";
+    }
+
+    @GetMapping("/strategispel")
+    public String strategispel(){
+        // model.addAttribute("strategispel")
+        return "strategispel";
     }
 
 //    @GetMapping("/addSpel")
@@ -39,6 +83,7 @@ public class SpelController {
 //
 //        return "addSpel";
 //    }
+>>>>>>> 6d46f325723d73e6f09d52b2efefdb07ff61e33f
 
     @PostMapping("/addSpel")
     String addSpel (HttpSession session, Model model, @ModelAttribute Spel spel) {
@@ -52,13 +97,22 @@ public class SpelController {
 
         spels.add(spel);
 
-        return "addSpel";
+        return "confirmation";
     }
+
+    @GetMapping("/confirmation")
+    public String confirm(){
+        return "confirmation";
+    }
+
+
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
         return "startpage";
     }
+
+
 
 }
