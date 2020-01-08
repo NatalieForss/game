@@ -77,5 +77,9 @@ public class UserInfo {
     public void setLoggedIn(boolean loggedIn) {
         isLoggedIn = loggedIn;
     }
+
+    public UserInfo getUser(String username) {
+        return userRepository.getUserByUsername(username);
+    }
 }
 

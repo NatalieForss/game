@@ -64,7 +64,7 @@ public class userRepository {
     }
 
     //get user by username from database
-    public UserInfo getUserByUsername(String username){
+    public static UserInfo getUserByUsername(String username){
 
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
@@ -78,6 +78,8 @@ public class userRepository {
         }
         return null;
     }
+
+
 
 //
 //    public UserInfo checkLogin(String userName, String password) {

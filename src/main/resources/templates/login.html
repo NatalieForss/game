@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -26,6 +26,9 @@
                         <input type="text" class="form-control" name="username" placeholder="Your username">
                         <label for password="password" class="col-sm col-form-label">Password</label>
                         <input type="password" class="form-control" name="password" placeholder="Your password">
+                        <br>
+                        <span th:if="${noSuchMember!=null}">Det finns ingen användare med det namnet i databasen. Försök igen. </span><br>
+                        <span th:if="${wrongPassword!=null}">. Fel lösenord. Försök igen. </span>
 
                         <div class="col-sm-auto"><div class="p-2 bg-sucess">
                             <input type="submit" value="Login"/>
