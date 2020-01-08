@@ -9,14 +9,16 @@ public class UserInfo {
         private String password;
         private String mail;
         private Double rating;
+        private boolean isLoggedIn;
 
 
-    public UserInfo(int id, String userName, String password, String mail, Double rating) {
+    public UserInfo(int id, String userName, String password, String mail, Double rating, boolean isLoggedIn) {
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.mail = mail;
         this.rating = rating;
+        this.isLoggedIn = isLoggedIn;
     }
 
     public UserInfo(String userName, String password) {
@@ -62,6 +64,14 @@ public class UserInfo {
 
     public void setRating(Double rating) {
         this.rating = rating;
+    }
+
+    public boolean isLoggedIn() {
+        return isLoggedIn;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        isLoggedIn = loggedIn;
     }
 }
 

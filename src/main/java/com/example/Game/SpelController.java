@@ -56,7 +56,8 @@ public class SpelController {
     }
 
     @GetMapping("/logout")
-    public String logout(){
+    public String logout(HttpSession session) {
+        session.invalidate();
         return "startpage";
     }
 
