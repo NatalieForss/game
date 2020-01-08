@@ -20,6 +20,8 @@ import java.util.List;
 
 @Controller
 public class SpelController {
+    @Autowired
+    SpelRepository spelRepository;
 
     @GetMapping("/spel")
     public String spel(){
@@ -33,12 +35,16 @@ public class SpelController {
         return "familjespel";
     }
 
-//    @GetMapping("/addSpel")
-//    String form(Model model) {
-//        model.addAttribute("spel", new Spel());
-//
-//        return "addSpel";
-//    }
+   @GetMapping("/addSpel")
+  String form(HttpSession session, Model model) {
+       model.addAttribute("spel", new Spel());
+       if(session.getAttribute("userName")!=null){
+
+
+           return "addSpel";
+       }
+       return "addSpel";
+   }
 
     @PostMapping("/addSpel")
     String addSpel (HttpSession session, Model model, @ModelAttribute Spel spel) {
@@ -52,13 +58,22 @@ public class SpelController {
 
         spels.add(spel);
 
-        return "addSpel";
+        return "confirmation";
     }
+
+    @GetMapping("/confirmation")
+    public String confirm(){
+        return "confirmation";
+    }
+
+
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
         return "startpage";
     }
+
+
 
 }
