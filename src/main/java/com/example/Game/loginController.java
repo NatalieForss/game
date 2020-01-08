@@ -58,7 +58,7 @@ public class loginController {
         return "signup";
     }
 
-    @PostMapping("/registrering")
+    @PostMapping("/addUser")
     String addUser(HttpSession session, Model model, @Valid UserInfo user, BindingResult result) {
         if (result.hasErrors()) {
 
