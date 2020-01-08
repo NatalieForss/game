@@ -27,10 +27,40 @@ public class SpelController {
     }
 
 
+    @GetMapping("/barnspel")
+    public String barnspel(){
+        // model.addAttribute("barnspel")
+        return "barnspel";
+    }
+
     @GetMapping("/familjespel")
     public String familjespel(){
         // model.addAttribute("familjespel")
         return "familjespel";
+    }
+
+    @GetMapping("/fragesport")
+    public String fragesport(){
+        // model.addAttribute("fragesport")
+        return "fragesport";
+    }
+
+    @GetMapping("/musik")
+    public String musik(){
+        // model.addAttribute("musik")
+        return "musik";
+    }
+
+    @GetMapping("/pussel")
+    public String pussel(){
+        // model.addAttribute("pussel")
+        return "pussel";
+    }
+
+    @GetMapping("/strategispel")
+    public String strategispel(){
+        // model.addAttribute("strategispel")
+        return "strategispel";
     }
 
 //    @GetMapping("/addSpel")
