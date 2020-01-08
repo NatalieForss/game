@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 
 @Service
 public class SpelRepository {
@@ -27,7 +27,18 @@ public class SpelRepository {
         spelList = new ArrayList<Spel>();
     }
 
-    //getters and setters
+    public Spel rsSpel(ResultSet rs) throws SQLException {
+        Spel spel = new Spel();
+        spel.setId(rs.getInt("SpelId"));
+        spel.setName(rs.getString("Spel namn"));
+        spel.setCategory(rs.getString("Spelkategori"));
+        spel.setStatus(rs.getBoolean("Status"));
+        spel.setLocation(rs.getString("Location"));
+        return spel;
+    }
+
+
+  /*  //getters and setters
     public List<Spel> getSpelList() {
         return spelList;
     }
@@ -39,36 +50,26 @@ public class SpelRepository {
             }
         }
         return null;
-    }
-
-    public void create5FakeSpel(){
-
-    for (int i = 0; i < 5; i++) {
+    }*/
 
 
-        Spel newSpel = new Spel("Spel " +i);
-            newSpel.setId(i);
-            addSpel(newSpel);
-        }
-    }
 
     private void addSpel(Spel spelToAdd) {
         spelList.add(spelToAdd);
     }
 
-    @GetMapping("/dbtest")
-    public boolean testDB() throws SQLException {
-        int two = 0;
-        try (Connection conn = dataSource.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT 1+1")) {
-            rs.next();
-            two = rs.getInt(1);
+        @GetMapping("/dbtest")
+        public boolean testDB () throws SQLException {
+            int two = 0;
+            try (Connection conn = dataSource.getConnection();
+                 Statement stmt = conn.createStatement();
+                 ResultSet rs = stmt.executeQuery("SELECT 1+1")) {
+                rs.next();
+                two = rs.getInt(1);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return two == 2;
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return two == 2;
-    }
 
-}
+    }

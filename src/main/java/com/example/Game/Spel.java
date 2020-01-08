@@ -26,6 +26,10 @@ public class Spel {
     public Spel(String s) {
     }
 
+    public Spel() {
+
+    }
+
     public int getId() {
         return id;
     }
