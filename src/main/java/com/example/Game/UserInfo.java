@@ -39,6 +39,8 @@ public class UserInfo {
         this.password = password;
     }
 
+    public UserInfo(String userName, String password, String mail, int userId) {
+    }
 
 
     public int getId() {
@@ -89,6 +91,10 @@ public class UserInfo {
         isLoggedIn = loggedIn;
     }
 
+
+    public Boolean getLoggedIn() {
+        return isLoggedIn;
+    }
 
 }
 
