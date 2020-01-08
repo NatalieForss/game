@@ -12,6 +12,10 @@ public class UserInfo {
         private boolean isLoggedIn;
 
 
+    public UserInfo() {
+
+    }
+
     public UserInfo(int id, String userName, String password, String mail, Double rating, boolean isLoggedIn) {
         this.id = id;
         this.userName = userName;

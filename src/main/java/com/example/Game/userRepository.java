@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +14,7 @@ public class userRepository {
     DataSource dataSource;
 
     private List<UserInfo> users;
+    private UserInfo user = null;
 
 
     public userRepository() {
@@ -24,49 +22,92 @@ public class userRepository {
 
     }
 
+    public UserInfo rsUser(ResultSet rs) throws SQLException{
+        UserInfo user = new UserInfo();
+        user.setId(rs.getInt("UserId"));
+        user.setUserName(rs.getString("UserName"));
+        user.setPassword(rs.getString("Password"));
+        user.setMail(rs.getString("Mail"));
+
+        return user;
+    }
+
+    //add user to database
     public void saveUser(UserInfo userInfo) {
 
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("INSERT INTO Player(Username, Password, Email) VALUES(?,?,?)")) {
+             PreparedStatement ps = conn.prepareStatement("INSERT INTO User(UserName, Password, Mail, Rating) VALUES(?,?,?,?)")) {
             ps.setString(1, userInfo.getUserName());
             ps.setString(2, userInfo.getPassword());
             ps.setString(3, userInfo.getMail());
+            ps.setDouble(4, userInfo.getRating());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-
-    public UserInfo checkLogin(String name, String password) {
-
+    //get user from database
+    public List<UserInfo> getUsers(){
+        users.clear();
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("SELECT * FROM Player WHERE Username=? AND Password=?")) {
-            ps.setString(1, name);
-            ps.setString(2, password);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                player = new UserInfo(rs.getString("username"),
-                        rs.getString("password"),
-                        rs.getString("email"),
-                        false,
-                        rs.getInt("playerId"));
-
-                System.out.println(player.getUserName() + " " + player.getPassword() + " " + player.isLoggedIn());
-
-                if (name.equals(player.getUserName()) && password.equals(player.getPassword())) {
-
-                    player.setLoggedIn(true);
-                    System.out.println("Kom in i IF-satsen");
-                }
-                System.out.println(player.getUserName() + player.isLoggedIn());
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM User")){
+            while(rs.next()){
+                users.add(rsUser(rs));
             }
-            return player;
-
-        } catch (SQLException e) {
+        }
+        catch(SQLException e){
             e.printStackTrace();
         }
+        return users;
+    }
 
+    //get user by username from database
+    public UserInfo getUserByUsername(String username){
+
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM User WHERE UserName='" + username + "'")){
+            if(rs.next()){
+                return rsUser(rs);
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
         return null;
     }
+
+//
+//    public UserInfo checkLogin(String userName, String password) {
+//
+//        try (Connection conn = dataSource.getConnection();
+//             PreparedStatement ps = conn.prepareStatement("SELECT * FROM User WHERE UserName=? AND Password=?")) {
+//            ps.setString(1, userName);
+//            ps.setString(2, password);
+//            ResultSet rs = ps.executeQuery();
+//            if (rs.next()) {
+//                user = new UserInfo(rs.getString("UserName"),
+//                        rs.getString("Password"),
+//                        rs.getString("Mail"),
+//                        rs.getInt("UserId"));
+//
+//                System.out.println(user.getUserName() + " " + user.getPassword() + " " + user.isLoggedIn());
+//
+//                if (userName.equals(user.getUserName()) && password.equals(user.getPassword())) {
+//
+//                    user.setLoggedIn(true);
+//
+//                }
+//                System.out.println(user.getUserName() + user.isLoggedIn());
+//            }
+//            return user;
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return null;
+//    }
 }
