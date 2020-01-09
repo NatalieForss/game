@@ -80,6 +80,11 @@ public class SpelController {
        return "addSpel";
    }
 
+   @GetMapping("/meddelande")
+   String message () {
+        return "message";
+   }
+
 
 //    @GetMapping("/addSpel")
 //    String form(Model model) {
