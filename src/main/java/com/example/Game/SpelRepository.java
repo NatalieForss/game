@@ -5,10 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,32 +37,47 @@ public class SpelRepository {
         Spel spel = new Spel();
         spel.setId(rs.getInt("SpelId"));
         spel.setName(rs.getString("Spel namn"));
-        spel.setCategory(rs.getString("Spelkategori"));
         spel.setStatus(rs.getBoolean("Status"));
         spel.setLocation(rs.getString("Location"));
+        spel.setTypeOfExchange(rs.getString("typeOfExchange"));
+        spel.setCategory(rs.getString("Spelkategori"));
         return spel;
     }
 
+    //lägger till DB
+    public void addSpel(Spel spelToAdd) {
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(
+                     "INSERT INTO Spel (GameNamn, Status, Location, TypeOfExchange, Category) " +
+                             "VALUES(?, ?, ?, ?, ?, )")) {
+            preparedStatement.setString(1, spelToAdd.getName());
+            preparedStatement.setBoolean(2, spelToAdd.isStatus());
+            preparedStatement.setString(3, spelToAdd.getLocation());
+            preparedStatement.setString(4, spelToAdd.getTypeOfExchange());
+            preparedStatement.setString(5, spelToAdd.getCategory());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
-  /*  //getters and setters
-    public List<Spel> getSpelList() {
+    // hämtar fråm DB
+    public List<Spel> getSpel(){
+        spelList.clear();
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM SPEL")){
+            while(rs.next()){
+                spelList.add(rsSpel(rs));
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
         return spelList;
     }
 
-    public Spel getSpel(int id) {
-        for (Spel spel : spelList) {
-            if (spel.getId() == id) {
-                return spel;
-            }
-        }
-        return null;
-    }*/
-
-
-
-
-
-        @GetMapping("/dbtest")
+    @GetMapping("/dbtest")
         public boolean testDB () throws SQLException {
             int two = 0;
             try (Connection conn = dataSource.getConnection();
