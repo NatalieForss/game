@@ -28,13 +28,13 @@ public class loginController {
     public String usersignup(HttpSession session, Model model) {
         model.addAttribute("user", new UserInfo());
 //        if (session.getAttribute("userName")!= null) {
-     //   UserInfo user = (UserInfo) session.getAttribute("userkey");
+        //   UserInfo user = (UserInfo) session.getAttribute("userkey");
 //        if (user != null && user.getLoggedIn()) {
 //            return "startpage";
 //        } else {
 
-            return "signup";
-        }
+        return "signup";
+    }
 
 
     @PostMapping("/signup")
@@ -50,28 +50,34 @@ public class loginController {
 
     @GetMapping("/login")
     public String login(HttpSession session) {
-        if (session.getAttribute("userName")!= null) {
-           // UserInfo user = (UserInfo) session.getAttribute("userkey");
+        if (session.getAttribute("userName") != null) {
+            // UserInfo user = (UserInfo) session.getAttribute("userkey");
 
-       // if (user != null && user.getLoggedIn()) {
-            return "startpage";
+            // if (user != null && user.getLoggedIn()) {
+            return "mypage";
         } else {
             return "login";
         }
 
     }
+
     @PostMapping("/login")
     public String loginP(HttpSession session, @RequestParam String username, @RequestParam String password) {
         UserInfo user = repository.ifUserIsLoggedIn(username, password);
 
         if (user != null && user.getLoggedIn()) {
             session.setAttribute("userkey", user);
-            return "startpage";
+            return "mypage";
         } else {
             return "login";
         }
+    }
 
-    }}
+    @GetMapping("/minasidor")
+    public String mypages() {
+        return "mypage";
+    }
+}
 
 
 ////    @GetMapping("/")
