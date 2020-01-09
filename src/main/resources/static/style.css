@@ -1,6 +1,18 @@
-text-color: black;
+h1 {
+color: black;
 
+}
+h2 {
+color: black;
 
+}
+h3 {
+color: black;
+
+}
+
+p {
+color: black }
 
 /* Three image containers (use 25% for four, and 50% for two, etc) */
 .column {
