@@ -1,18 +1,25 @@
 h1 {
-color: black;
-
+    color: black;
 }
+
 h2 {
-color: black;
-
+    color: black;
 }
-h3 {
-color: black;
 
+h3 {
+    color: black;
 }
 
 p {
-color: black }
+    color: black;
+}
+
+body {
+    background-image: url('pussel_background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
 
 /* Three image containers (use 25% for four, and 50% for two, etc) */
 .column {
@@ -38,6 +45,7 @@ color: black }
 p {
     text-align: center;
 }
+
 
 
 
