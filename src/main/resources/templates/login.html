@@ -19,21 +19,25 @@
                 <div class="text-center">
                     <p class = "title" style = "color: rgb(255,255,255);"></p>
 
+<<<<<<< HEAD
                     <form action="/login" method="POST">
+=======
+                    <h5>Logga in här</h5>
+                    <form action="/login" th:object="${user}" method="POST">
+>>>>>>> 2f831cdf181035281b633f88ec58f969d2db3f9e
 
-                        <label for name="username" class="col-md-auto col-form-label">Username</label>
+                        <label for name="username" class="col-md-auto col-form-label">Amvändarnamn</label>
                         <input type="text" class="form-control" name="username" placeholder="Your username">
-                        <label for password="password" class="col-sm col-form-label">Password</label>
+                        <label for password="password" class="col-sm col-form-label">Lösenord</label>
                         <input type="password" class="form-control" name="password" placeholder="Your password">
                         <br>
-                        <span th:if="${noSuchMember!=null}">Det finns ingen användare med det namnet i databasen. Försök igen. </span><br>
-                        <span th:if="${wrongPassword!=null}">. Fel lösenord. Försök igen. </span>
+
 
                         <div class="col-sm-auto"><div class="p-2 bg-sucess">
                             <input type="submit" value="Login"/>
                         </div>
                         </div>
-                        <p><h5>Not a member? Sign up <a href="/signup" class="link" style = "color: rgb(255,255,255);">here</a></h5></p></form>
+                        <p><h5 style="color: black">Inte medlem? Registrera dig <a href="/signup" class="link" style = "color: black">här</a></h5></p></form>
                 </div>
             </div>
         </div>
