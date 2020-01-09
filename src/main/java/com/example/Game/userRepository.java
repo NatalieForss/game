@@ -38,7 +38,7 @@ public class userRepository {
     public void addUser(UserInfo userInfo) {
 
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("INSERT INTO User(UserName, Password, Mail) VALUES(?,?,?)")) {
+             PreparedStatement ps = conn.prepareStatement("INSERT INTO [User](UserName, Password, Mail) VALUES(?,?,?)")) {
             ps.setString(1, userInfo.getUserName());
             ps.setString(2, userInfo.getPassword());
             ps.setString(3, userInfo.getMail());
@@ -54,7 +54,7 @@ public class userRepository {
         users.clear();
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM User")){
+             ResultSet rs = stmt.executeQuery("SELECT * FROM [User]")){
             while(rs.next()){
                 users.add(rsUser(rs));
             }
@@ -70,7 +70,7 @@ public class userRepository {
 
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM User WHERE UserName='" + username + "'")){
+             ResultSet rs = stmt.executeQuery("SELECT * FROM [User] WHERE UserName='" + username + "'")){
             if(rs.next()){
                 return rsUser(rs);
             }
@@ -84,7 +84,7 @@ public class userRepository {
     public UserInfo ifUserIsLoggedIn(String userName, String password) {
 
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("SELECT * FROM User WHERE UserName=? AND Password=?")) {
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM [User] WHERE UserName=? AND Password=?")) {
             ps.setString(1, userName);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
