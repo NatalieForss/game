@@ -22,6 +22,8 @@ import java.util.List;
 public class SpelController {
     @Autowired
     SpelRepository spelRepository;
+    @Autowired
+    Metods metods;
 
     @GetMapping("/spel")
     public String spel(){
@@ -45,11 +47,11 @@ public class SpelController {
    @GetMapping("/addSpel")
   String form(HttpSession session, Model model) {
        model.addAttribute("spel", new Spel());
-       if(session.getAttribute("userName")!=null){
+      // if(session.getAttribute("userName")!=null){
 
 
-           return "addSpel";
-       }
+      //     return "addSpel";
+       //}
        return "addSpel";
    }
 
@@ -85,7 +87,7 @@ public class SpelController {
 //    }
 
 
-    @PostMapping("/addSpel")
+   /* @PostMapping("/addSpel")
     String addSpel (HttpSession session, Model model, @ModelAttribute Spel spel) {
         model.addAttribute("spel", spel);
 
@@ -95,10 +97,23 @@ public class SpelController {
             session.setAttribute("spels", spels);
         }
 
-        spels.add(spel);
+        metods.addSpel(spel);
+
+        return "confirmation";
+    }*/
+
+    @PostMapping("/addSpel")
+    public String addSpel( HttpSession session, Model model,@ModelAttribute Spel spel) {
+        model.addAttribute("spel", spel);
+       /* if (result.hasErrors()) {
+            model.addAttribute("spel", spel);
+            return "addSpel";
+        }*/
+        metods.addSpel(spel);
 
         return "confirmation";
     }
+
 
     @GetMapping("/confirmation")
     public String confirm(){

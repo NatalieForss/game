@@ -8,7 +8,8 @@ public class Metods {
 
     @Autowired
     userRepository userRepository;
-   // SpelRepository spelRepository;
+    @Autowired
+   SpelRepository spelRepository;
 
 
     public UserInfo getUser(String username){
@@ -20,13 +21,13 @@ public class Metods {
     }
 
 
-/*    public Spel getSpel(Integer id) {
+/* public Spel getSpel(Integer id) {
         return SpelRepository.getSpel(id);
-    }
+    }*/
 
     public void addSpel(Spel spel) {
-       SpelRepository.addSpel(spel);
-    }*/
+       spelRepository.addSpel(spel);
+    }
 
 
 }
