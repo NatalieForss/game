@@ -25,35 +25,12 @@ public class SpelController {
     @Autowired
     Metods metods;
 
+
+
     @GetMapping("/spel")
     public String spel(){
         return "startpage";
     }
-
-
-    @GetMapping("/barnspel")
-    public String barnspel(){
-        // model.addAttribute("barnspel")
-        return "barnspel";
-    }
-
-    @GetMapping("/familjespel")
-    public String familjespel(){
-        // model.addAttribute("familjespel")
-        return "familjespel";
-    }
-
-
-   @GetMapping("/addSpel")
-  String form(HttpSession session, Model model) {
-       model.addAttribute("spel", new Spel());
-      // if(session.getAttribute("userName")!=null){
-
-
-      //     return "addSpel";
-       //}
-       return "addSpel";
-   }
 
     @GetMapping("/fragesport")
     public String fragesport(){
@@ -79,13 +56,37 @@ public class SpelController {
         return "strategispel";
     }
 
+    @GetMapping("/barnspel")
+    public String barnspel(){
+        // model.addAttribute("barnspel")
+        return "barnspel";
+    }
+
+    @GetMapping("/familjespel")
+    public String familjespel(){
+        // model.addAttribute("familjespel")
+        return "familjespel";
+    }
+
+   @GetMapping("/addSpel")
+  String form(HttpSession session, Model model) {
+       model.addAttribute("spel", new Spel());
+      if(session.getAttribute("userName")!=null){
+
+
+
+        return "login";
+       }
+       return "addSpel";
+   }
+
+
 //    @GetMapping("/addSpel")
 //    String form(Model model) {
 //        model.addAttribute("spel", new Spel());
 //
 //        return "addSpel";
 //    }
-
 
    /* @PostMapping("/addSpel")
     String addSpel (HttpSession session, Model model, @ModelAttribute Spel spel) {
@@ -102,17 +103,27 @@ public class SpelController {
         return "confirmation";
     }*/
 
-    @PostMapping("/addSpel")
-    public String addSpel( HttpSession session, Model model,@ModelAttribute Spel spel) {
+   @PostMapping("/addSpel")
+    public String addSpel( HttpSession session, Model model,@ModelAttribute Spel spel, BindingResult bindingResult) {
+
+       if (bindingResult.hasErrors()) {
+
+           return "addSpel";
+       }
         model.addAttribute("spel", spel);
-       /* if (result.hasErrors()) {
-            model.addAttribute("spel", spel);
-            return "addSpel";
-        }*/
+
         metods.addSpel(spel);
 
-        return "confirmation";
-    }
+       List<Spel> spels = (List<Spel>)session.getAttribute("spels");
+       if (spels == null) {
+           spels = new ArrayList<>();
+           session.setAttribute("spels", spels);
+       }
+
+       metods.addSpel(spel);
+
+       return "confirmation";
+   }
 
 
     @GetMapping("/confirmation")

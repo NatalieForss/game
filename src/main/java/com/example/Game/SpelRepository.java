@@ -48,16 +48,16 @@ public class SpelRepository {
     }
 
     //lägger till DB
-    public void addSpel(Spel spelToAdd) {
+    public void addSpel(Spel spelToAdd,int id) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(
-                     "INSERT INTO Game (GameName, Status, Location, TypeOfExchange, Category) " +
-                             "VALUES(?, ?, ?, ?, ? )")) {
+                     "INSERT INTO Game (GameName, Status, Location, TypeOfExchange, Category,UserId) VALUES(?, ?, ?, ?, ?,? )")) {
             preparedStatement.setString(1, spelToAdd.getName());
             preparedStatement.setBoolean(2, spelToAdd.isStatus());
             preparedStatement.setString(3, spelToAdd.getLocation());
             preparedStatement.setString(4, spelToAdd.getTypeOfExchange());
             preparedStatement.setString(5, spelToAdd.getCategory());
+            preparedStatement.setInt(6, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -65,7 +65,7 @@ public class SpelRepository {
     }
 
     // hämtar fråm DB
-    public List<Spel> getSpel(){
+    public List<Spel> getGame(){
         spelList.clear();
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
