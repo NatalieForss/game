@@ -41,7 +41,7 @@ public class SpelController {
         return "familjespel";
     }
 
-<<<<<<< HEAD
+
    @GetMapping("/addSpel")
   String form(HttpSession session, Model model) {
        model.addAttribute("spel", new Spel());
@@ -52,7 +52,7 @@ public class SpelController {
        }
        return "addSpel";
    }
-=======
+
     @GetMapping("/fragesport")
     public String fragesport(){
         // model.addAttribute("fragesport")
@@ -83,7 +83,7 @@ public class SpelController {
 //
 //        return "addSpel";
 //    }
->>>>>>> 6d46f325723d73e6f09d52b2efefdb07ff61e33f
+
 
     @PostMapping("/addSpel")
     String addSpel (HttpSession session, Model model, @ModelAttribute Spel spel) {
