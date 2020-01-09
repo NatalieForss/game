@@ -50,10 +50,10 @@ public class loginController {
 
     @GetMapping("/login")
     public String login(HttpSession session) {
-        //if (session.getAttribute("userName")!= null) {
-            UserInfo user = (UserInfo) session.getAttribute("userkey");
+        if (session.getAttribute("userName")!= null) {
+           // UserInfo user = (UserInfo) session.getAttribute("userkey");
 
-        if (user != null && user.getLoggedIn()) {
+       // if (user != null && user.getLoggedIn()) {
             return "startpage";
         } else {
             return "login";
