@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <meta charset="utf-8">
-    <meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -12,31 +12,29 @@
 
 </head>
 <body>
-<div class ="form" style = "color: rgb(255,255,255);">
+<div class="form" style="color: rgb(255,255,255);">
     <div class="d-flex justify-content-center align-items-center container">
         <div class="form-group row">
             <div class="p-5 bg-sucess">
                 <div class="text-center">
-                    <p class = "title" style = "color: rgb(255,255,255);"></p>
-
-
+                    <p class="title" style="color: rgb(255,255,255);"></p>
                     <form action="/login" method="POST">
+                        <h5>Logga in här</h5>
+                        <form action="/login" th:object="${user}" method="POST">
+                            <label for name="username" class="col-md-auto col-form-label">Användarnamn</label>
+                            <input type="text" class="form-control" name="username" placeholder="Användarnamn">
+                            <label for password="password" class="col-sm col-form-label">Lösenord</label>
+                            <input type="password" class="form-control" name="password" placeholder="Lösenord">
+                            <br>
 
-                    <h5>Logga in här</h5>
-                    <form action="/login" th:object="${user}" method="POST">
-
-                        <label for name="username" class="col-md-auto col-form-label">Amvändarnamn</label>
-                        <input type="text" class="form-control" name="username" placeholder="Your username">
-                        <label for password="password" class="col-sm col-form-label">Lösenord</label>
-                        <input type="password" class="form-control" name="password" placeholder="Your password">
-                        <br>
-
-
-                        <div class="col-sm-auto"><div class="p-2 bg-sucess">
-                            <input type="submit" value="Login"/>
-                        </div>
-                        </div>
-                        <p><h5 style="color: black">Inte medlem? Registrera dig <a href="/signup" class="link" style = "color: black">här</a></h5></p></form>
+                            <div class="col-sm-auto">
+                                <div class="p-2 bg-sucess">
+                                    <input type="submit" value="Logga in"/>
+                                </div>
+                            </div>
+                            <p><h5 style="color: black">Inte medlem? Registrera dig <a href="/signup" class="link"
+                                                                                       style="color: black">här</a>
+                        </h5></p></form>
                 </div>
             </div>
         </div>
