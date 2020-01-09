@@ -26,7 +26,7 @@ public class Metods {
     }*/
 
     public void addSpel(Spel spel) {
-       spelRepository.addSpel(spel);
+       spelRepository.addSpel(spel, 1);
     }
 
 
