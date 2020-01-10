@@ -15,6 +15,7 @@ public class userRepository {
     @Autowired
     DataSource dataSource;
 
+
     private List<UserInfo> users;
     private UserInfo user = null;
 
@@ -81,11 +82,11 @@ public class userRepository {
         return null;
     }
 
-    public UserInfo ifUserIsLoggedIn(String userName, String password) {
+    public UserInfo ifUserIsLoggedIn(String name, String password) {
 
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("SELECT * FROM [User] WHERE UserName=? AND Password=?")) {
-            ps.setString(1, userName);
+            ps.setString(1, name);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -94,14 +95,14 @@ public class userRepository {
                         rs.getString("Mail"),
                         rs.getInt("UserId"));
 
-                System.out.println(user.getUserName() + " " + user.getPassword() + " " + user.isLoggedIn());
+                System.out.println(user.getUserName() + " " + user.getPassword() + " " + user.getLoggedIn());
 
-                if (userName.equals(user.getUserName()) && password.equals(user.getPassword())) {
+                if (name.equals(user.getUserName()) && password.equals(user.getPassword())) {
 
                     user.setLoggedIn(true);
 
                 }
-                System.out.println(user.getUserName() + user.isLoggedIn());
+                System.out.println(user.getUserName() + user.getLoggedIn());
             }
             return user;
 
