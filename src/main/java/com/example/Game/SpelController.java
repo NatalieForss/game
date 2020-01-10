@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
@@ -141,6 +142,30 @@ public class SpelController {
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
+        return "startpage";
+    }
+
+    @GetMapping("/")
+    String goToIndexPage(Model model, @RequestParam(required = false, defaultValue = "0") String page) {
+
+        int pageNr = Integer.parseInt(page);
+
+        List<Spel> selectedSpel = metods.getSortedSpelList(pageNr, 20, false);
+
+
+        model.addAttribute("spel", selectedSpel);
+
+        return "startpage";
+    }
+
+    @PostMapping("/filter_spel")
+    String filterSpel(Model model, @RequestParam(required = false, defaultValue = "false") String available){
+        boolean onlyAvailable = Boolean.parseBoolean(available);
+
+        List<Spel> selectedSpel = metods.getSortedSpelList(0, 20, onlyAvailable);
+
+        model.addAttribute("spel", selectedSpel);
+
         return "startpage";
     }
 
