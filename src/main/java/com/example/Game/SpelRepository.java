@@ -91,6 +91,21 @@ public class SpelRepository {
         return null;
     }
 
+    public Spel getGameByBarnspelCategory(String gameCategory){
+
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM Game WHERE Category LIKE Barnspel")){
+            if(rs.next()){
+                return rsSpel(rs);
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     //retunerar lisa med spel sorterade på tillänlighet
     public List<Spel> getSortedSpelList(int pageNr, int itemsPerPage, boolean onlyAvailable) {
 
