@@ -28,14 +28,7 @@ public class SpelRepository {
     public SpelRepository() {
         spelList = new ArrayList<>();
     }
-    public Spel getSpel(int id) {
-        for (Spel spel : spelList) {
-            if (spel.getId() == id) {
-                return spel;
-            }
-        }
-        return null;
-    }
+//
 
 
     public Spel rsSpel(ResultSet rs) throws SQLException {
@@ -51,10 +44,10 @@ public class SpelRepository {
     }
 
     //lägger till DB
-    public void addSpel(Spel spelToAdd,int id) {
+    public void addSpel(Spel spelToAdd, int id) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(
-                     "INSERT INTO Game (GameName, Status, Location, TypeOfExchange, Category,UserId) VALUES(?, ?, ?, ?, ?,? )")) {
+                     "INSERT INTO Game (GameName, Status, Location, TypeOfExchange, Category, UserId) VALUES(?, ?, ?, ?, ?, ? )")) {
             preparedStatement.setString(1, spelToAdd.getName());
             preparedStatement.setBoolean(2, spelToAdd.isStatus());
             preparedStatement.setString(3, spelToAdd.getLocation());

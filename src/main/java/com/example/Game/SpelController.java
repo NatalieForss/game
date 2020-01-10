@@ -74,43 +74,13 @@ public class SpelController {
        model.addAttribute("spel", new Spel());
       if(session.getAttribute("userName")!=null){
 
-
-
         return "login";
        }
        return "addSpel";
    }
 
-   @GetMapping("/meddelande")
-   String message () {
-        return "message";
-   }
-
-
-//    @GetMapping("/addSpel")
-//    String form(Model model) {
-//        model.addAttribute("spel", new Spel());
-//
-//        return "addSpel";
-//    }
-
-   /* @PostMapping("/addSpel")
-    String addSpel (HttpSession session, Model model, @ModelAttribute Spel spel) {
-        model.addAttribute("spel", spel);
-
-        List<Spel> spels = (List<Spel>)session.getAttribute("spels");
-        if (spels == null) {
-            spels = new ArrayList<>();
-            session.setAttribute("spels", spels);
-        }
-
-        metods.addSpel(spel);
-
-        return "confirmation";
-    }*/
-
    @PostMapping("/addSpel")
-    public String addSpel( HttpSession session, Model model,@ModelAttribute Spel spel, BindingResult bindingResult) {
+    public String addSpel( HttpSession session, Model model, @ModelAttribute Spel spel, BindingResult bindingResult) {
 
        if (bindingResult.hasErrors()) {
 
@@ -126,7 +96,7 @@ public class SpelController {
            session.setAttribute("spels", spels);
        }
 
-       metods.addSpel(spel);
+       spels.add(spel);
 
        return "confirmation";
    }
@@ -137,6 +107,10 @@ public class SpelController {
         return "confirmation";
     }
 
+    @GetMapping("/meddelande")
+    String message () {
+        return "message";
+    }
 
 
     @GetMapping("/logout")
