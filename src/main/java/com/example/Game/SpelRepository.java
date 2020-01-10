@@ -106,7 +106,7 @@ public class SpelRepository {
         return null;
     }
 
-    //retunerar lisa med spel sorterade på tillänlighet
+    //retunerar lista med spel sorterade på tillänlighet
     public List<Spel> getSortedSpelList(int pageNr, int itemsPerPage, boolean onlyAvailable) {
 
         List<Spel> subList = new ArrayList<Spel>();
