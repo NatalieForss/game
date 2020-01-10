@@ -11,7 +11,7 @@ public class UserInfo {
     userRepository userRepository;
 
         private int id;
-    @Size(min=5, max=30)
+    @Size(min=3, max=30)
         private String userName;
     @Size(min=5, max=30)
         private String password;
@@ -40,6 +40,9 @@ public class UserInfo {
     }
 
     public UserInfo(String userName, String password, String mail, int userId) {
+    }
+
+    public UserInfo(String userName, String password, String mail, boolean b, int userId) {
     }
 
 
@@ -83,18 +86,14 @@ public class UserInfo {
         this.rating = rating;
     }
 
-    public boolean isLoggedIn() {
-        return isLoggedIn;
-    }
-
-    public void setLoggedIn(boolean loggedIn) {
-        isLoggedIn = loggedIn;
-    }
-
-
     public Boolean getLoggedIn() {
         return isLoggedIn;
     }
 
-}
+    public void setLoggedIn(Boolean loggedIn) {
+        isLoggedIn = loggedIn;
+    }
+    }
+
+
 
