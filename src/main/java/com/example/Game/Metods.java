@@ -3,6 +3,8 @@ package com.example.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class Metods {
 
@@ -29,5 +31,15 @@ public class Metods {
        spelRepository.addSpel(spel, 1);
     }
 
+    //hämtar spel from DB och sorterar dem i SpelRepository
 
+    public List<Spel> getSortedSpelList(int pageNr, int itemsPerPage, boolean onlyAvailable) {
+
+        spelRepository.getGame();
+
+        return spelRepository.getSortedSpelList(pageNr, itemsPerPage,onlyAvailable);
+    }
 }
+
+
+

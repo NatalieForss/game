@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -17,8 +18,10 @@ public class SpelRepository {
     @Autowired
     DataSource dataSource;
 
-
+    //instance variables
     private List<Spel> spelList;
+
+
     private Spel spel = null;
 
 
@@ -95,7 +98,30 @@ public class SpelRepository {
         return null;
     }
 
+    //retunerar lisa med spel sorterade på tillänlighet
+    public List<Spel> getSortedSpelList(int pageNr, int itemsPerPage, boolean onlyAvailable) {
 
+        List<Spel> subList = new ArrayList<Spel>();
+
+        //Collections.sort(spelList);
+
+        //antal spel som visas på hemsida är begränsad
+        for(int ii=0; ii< Math.min(itemsPerPage, spelList.size()); ii++){
+
+            Spel spel = spelList.get(pageNr+ii);
+
+
+            if(onlyAvailable){// om man krysar in härr så kommer att visas endast  tillgänliga spel
+                if(spel.isStatus()){
+                    subList.add(spel);
+                }
+            }
+            else {
+                subList.add(spel);
+            }
+        }
+        return subList;
+    }
 
 
 
