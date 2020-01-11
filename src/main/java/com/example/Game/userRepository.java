@@ -72,6 +72,7 @@ public class userRepository {
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM [User] WHERE UserName='" + username + "'")){
+            //ResultSet rs = stmt.executeQuery("SELECT * FROM [User] WHERE UserName = 'AGA'")){
             if(rs.next()){
                 return rsUser(rs);
             }
