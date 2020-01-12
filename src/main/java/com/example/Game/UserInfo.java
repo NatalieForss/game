@@ -7,22 +7,25 @@ import javax.validation.constraints.Size;
 
 
 public class UserInfo {
-    @Autowired
-    userRepository userRepository;
 
-        private int id;
-    @Size(min=3, max=30)
-        private String userName;
-    @Size(min=5, max=30)
-        private String password;
+    private int id;
+    @Size(min = 3, max = 30)
+    private String userName;
+    @Size(min = 5, max = 30)
+    private String password;
     @Email
-        private String mail;
-        private Double rating;
-        private boolean isLoggedIn;
+    private String mail;
+    private Double rating;
+    private boolean isLoggedIn;
 
 
     public UserInfo() {
+    }
 
+    public UserInfo(String mail, String userName, String password) {
+        this.mail = mail;
+        this.userName = userName;
+        this.password = password;
     }
 
     public UserInfo(int id, String userName, String password, String mail, Double rating, boolean isLoggedIn) {
@@ -34,13 +37,6 @@ public class UserInfo {
         this.isLoggedIn = isLoggedIn;
     }
 
-    public UserInfo(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
-
-    public UserInfo(String userName, String password, String mail, int userId) {
-    }
 
     public UserInfo(String userName, String password, String mail, boolean b, int userId) {
     }
@@ -93,7 +89,7 @@ public class UserInfo {
     public void setLoggedIn(Boolean loggedIn) {
         isLoggedIn = loggedIn;
     }
-    }
+}
 
 
 

@@ -25,7 +25,7 @@
                         <label for name="mail" class="col-md-auto col-form-label">E-post</label>
                         <input type="text" class="form-control" name="mail" placeholder="E-mail">
                         <label for name="username" class="col-md-auto col-form-label">Username</label>
-                        <input type="text" class="form-control" name="username" placeholder="Användarnamn">
+                        <input type="text" class="form-control" name="userName" placeholder="Användarnamn">
                         <label for password="password" class="col-sm col-form-label">Password</label>
                         <input type="password" class="form-control" name="password" placeholder="Lösenord">
                         <br>
@@ -40,7 +40,9 @@
                             <li th:each="userInfo : ${session.users}" th:text="${userInfo}"></li>
 
                         </ul>
+                    </form>
                 </div>
+
             </div>
         </div>
     </div>

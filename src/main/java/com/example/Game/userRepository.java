@@ -17,7 +17,7 @@ public class userRepository {
 
 
     private List<UserInfo> users;
-    private UserInfo user = null;
+    private UserInfo user;
 
 
     public userRepository() {
@@ -37,9 +37,9 @@ public class userRepository {
 
     //add user to database
     public void addUser(UserInfo userInfo) {
-
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("INSERT INTO [User](UserName, Password, Mail) VALUES(?,?,?)")) {
+            System.out.println(userInfo.getUserName());
             ps.setString(1, userInfo.getUserName());
             ps.setString(2, userInfo.getPassword());
             ps.setString(3, userInfo.getMail());
@@ -89,20 +89,18 @@ public class userRepository {
             ps.setString(1, name);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                user = new UserInfo(rs.getString("UserName"),
-                        rs.getString("Password"),
-                        rs.getString("Mail"),
-                        rs.getInt("UserId"));
 
-                System.out.println(user.getUserName() + " " + user.getPassword() + " " + user.getLoggedIn());
+            if (rs.next()) {
+                user = new UserInfo();
+                user.setUserName(rs.getString("UserName"));
+                user.setPassword(rs.getString("Password"));
+                user.setMail(rs.getString("Mail"));
+                user.setLoggedIn(false);
+                user.setId(rs.getInt("UserId"));
 
                 if (name.equals(user.getUserName()) && password.equals(user.getPassword())) {
-
                     user.setLoggedIn(true);
-
                 }
-                System.out.println(user.getUserName() + user.getLoggedIn());
             }
             return user;
 
