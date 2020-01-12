@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
+
+
 
 @Controller
 public class loginController {
@@ -26,12 +26,10 @@ public class loginController {
     @GetMapping("/signup")
     public String signup(HttpSession session, Model model) {
         model.addAttribute("user", new UserInfo());
-
         UserInfo user = (UserInfo) session.getAttribute("user");
         if (user != null && user.getLoggedIn()) {
             return "startpage";
         } else {
-
             return "signup";
         }
     }
@@ -42,6 +40,7 @@ public class loginController {
             model.addAttribute("user", user);
             return "signup";
         }
+
 
         repository.addUser(user);
 
@@ -61,12 +60,12 @@ public class loginController {
     @PostMapping("/login")
     public String loginPost(HttpSession session, @RequestParam String username, @RequestParam String password) {
         UserInfo user = repository.ifUserIsLoggedIn(username, password);
-//        if (user != null && user.getLoggedIn()) {
-//            session.setAttribute("user", user);
+        if (user != null) {
+            session.setAttribute("user", user);
             return "mypage";
-//        } else {
-//            return "login";
-//        }
+        } else {
+            return "login";
+        }
     }
 
     @GetMapping("/minasidor")

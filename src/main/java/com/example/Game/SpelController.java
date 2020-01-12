@@ -10,105 +10,100 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import javax.sql.DataSource;
-import javax.validation.Valid;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class SpelController {
+
     @Autowired
     SpelRepository spelRepository;
+
     @Autowired
     Metods metods;
 
 
-
     @GetMapping("/spel")
-    public String spel(){
+    public String spel() {
         return "startpage";
     }
 
     @GetMapping("/fragesport")
-    public String fragesport(){
+    public String fragesport() {
         // model.addAttribute("fragesport")
         return "fragesport";
     }
 
     @GetMapping("/musik")
-    public String musik(){
+    public String musik() {
         // model.addAttribute("musik")
         return "musik";
     }
 
     @GetMapping("/pussel")
-    public String pussel(){
+    public String pussel() {
         // model.addAttribute("pussel")
         return "pussel";
     }
 
     @GetMapping("/strategispel")
-    public String strategispel(){
+    public String strategispel() {
         // model.addAttribute("strategispel")
         return "strategispel";
     }
 
     @GetMapping("/barnspel")
-    public String barnspel(){
-        // model.addAttribute("barnspel")
+    public String barnspel(Model model) {
+        model.addAttribute("barnspel", spelRepository.getGamesByCategory("'Barnspel'"));
         return "barnspel";
     }
 
     @GetMapping("/familjespel")
-    public String familjespel(){
+    public String familjespel() {
         // model.addAttribute("familjespel")
         return "familjespel";
     }
 
-   @GetMapping("/addSpel")
-  String form(HttpSession session, Model model) {
-       model.addAttribute("spel", new Spel());
-      if(session.getAttribute("userName")!=null){
+    @GetMapping("/addSpel")
+    String form(HttpSession session, Model model) {
+        model.addAttribute("spel", new Spel());
+        if (session.getAttribute("userName") != null) {
 
-        return "login";
-       }
-       return "addSpel";
-   }
+            return "login";
+        }
+        return "addSpel";
+    }
 
-   @PostMapping("/addSpel")
-    public String addSpel( HttpSession session, Model model, @ModelAttribute Spel spel, BindingResult bindingResult) {
+    @PostMapping("/addSpel")
+    public String addSpel(HttpSession session, Model model, @ModelAttribute Spel spel, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "addSpel";
+        }
 
-       if (bindingResult.hasErrors()) {
-
-           return "addSpel";
-       }
         model.addAttribute("spel", spel);
+        UserInfo userInfo = (UserInfo) session.getAttribute("user");
 
-        metods.addSpel(spel);
+        metods.addSpel(spel, userInfo.getId());
 
-       List<Spel> spels = (List<Spel>)session.getAttribute("spels");
-       if (spels == null) {
-           spels = new ArrayList<>();
-           session.setAttribute("spels", spels);
-       }
+        List<Spel> spels = (List<Spel>) session.getAttribute("spels");
+        if (spels == null) {
+            spels = new ArrayList<>();
+            session.setAttribute("spels", spels);
+        }
 
-       spels.add(spel);
+        spels.add(spel);
 
-       return "confirmation";
-   }
+        return "confirmation";
+    }
 
 
     @GetMapping("/confirmation")
-    public String confirm(){
+    public String confirm() {
         return "confirmation";
     }
 
     @GetMapping("/meddelande")
-    String message () {
+    String message() {
         return "message";
     }
 
@@ -133,7 +128,7 @@ public class SpelController {
     }
 
     @PostMapping("/filter_spel")
-    String filterSpel(Model model, @RequestParam(required = false, defaultValue = "false") String available){
+    String filterSpel(Model model, @RequestParam(required = false, defaultValue = "false") String available) {
         boolean onlyAvailable = Boolean.parseBoolean(available);
 
         List<Spel> selectedSpel = metods.getSortedSpelList(0, 20, onlyAvailable);
@@ -142,7 +137,4 @@ public class SpelController {
 
         return "startpage";
     }
-
-
-
 }
