@@ -25,16 +25,16 @@
                         <input type="text" class="form-control" name="mail" placeholder="E-post">
                         <br>
                         <label for name="username" class="col-md-auto col-form-label"><h4>Användarnamn</h4></label>
-                        <input type="text" class="form-control" name="username" placeholder="Användarnamn">
+                        <input type="text" class="form-control" name="userName" placeholder="Användarnamn">
                         <br>
                         <label for password="password" class="col-sm col-form-label"><h4>Lösenord</h4></label>
                         <input type="password" class="form-control" name="password" placeholder="Lösenord">
                         <br>
 
-                        <form class="col-sm-auto">
-                            <form class="p-2 bg-sucess">
-                                <input type="submit" class="btn btn-primary" value="Registrera"></form>
-                        </form>
+                        <div class="col-sm-auto">
+                            <div class="p-2 bg-sucess">
+                                <input type="submit" class="btn btn-primary" value="Registrera"></div>
+                        </div>
                         <ul>
                             <li th:each="userInfo : ${session.users}" th:text="${userInfo}"></li>
                         </ul>
@@ -63,6 +63,7 @@
                                 </div>
                             </div>
                         </nav>
+                    </form>
                 </div>
             </div>
         </div>

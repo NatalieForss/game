@@ -39,6 +39,12 @@ body {
     padding: 10px;
 }
 
+.rubrik {
+    font-family: verdana;
+    font-weight: bold;
+    color: #f25e5e;
+}
+
 /* Clear floats after image containers */
 .row {
     display: table;
