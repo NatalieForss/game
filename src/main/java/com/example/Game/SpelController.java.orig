@@ -137,6 +137,7 @@ public class SpelController {
 
         return "startpage";
     }
+<<<<<<< HEAD
 
     @GetMapping("/aboutUs")
     public String about(){
@@ -146,4 +147,6 @@ public class SpelController {
 
 
 
+=======
+>>>>>>> 9a09d90a7d97e48c49e7f0db4878cca39bb33a97
 }

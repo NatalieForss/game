@@ -27,8 +27,8 @@ public class Metods {
         return SpelRepository.getSpel(id);
     }*/
 
-    public void addSpel(Spel spel) {
-       spelRepository.addSpel(spel, 1);
+    public void addSpel(Spel spel, int id) {
+       spelRepository.addSpel(spel, id);
     }
 
     //hämtar spel from DB och sorterar dem i SpelRepository

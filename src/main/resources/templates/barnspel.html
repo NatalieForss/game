@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Title</title>
     <meta charset="UTF-8">
-    <title>Barnspel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="logo2.png"/>
 </head>
 <body>
 
 <form action="/barnspel" method="POST"></form>
 
-    <h3>barnspel</h3>
+<nav class="navbar navbar-fixed-top" style="background-color: #e2e2e2">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"><img id="logo" src="bytaspel2.png" alt="logo"></a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/logout" style="color: black"><span class="glyphicon glyphicon-home"></span> Hem</a></li>
+        </ul>
+    </div>
+</nav>
 
+<nav class="navbar navbar-fixed-bottom" style="background-color: #e2e2e2">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"></a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/omoss" style="color: black">Om oss</a></li>
+        </ul>
+        <div class="footer-copyright"><br>
+            <p>© 2020 Copyright: Byta Spel</p>
+        </div>
+    </div>
+</nav>
+
+
+<tr th:each="barn: ${barnspel}">
+    <td th:text="${barn.Category}" />
+    <td th:text="${barn.Location}" />
+    <td th:text="${barn.Name}" />
+    <td th:text="${barn.TypeOfExchange}" />
+</tr>
 
 </body>
 </html>

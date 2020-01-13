@@ -28,7 +28,29 @@ public class SpelRepository {
     public SpelRepository() {
         spelList = new ArrayList<>();
     }
-//
+
+    public List<Spel> getGamesByCategory(String category) {
+        spelList.clear();
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM Game WHERE Category=" + category)){
+            while(rs.next()){
+                Spel spel = new Spel();
+                spel.setCategory(rs.getString("Category"));
+                spel.setLocation(rs.getString("Location"));
+                spel.setName(rs.getString("GameName"));
+                spel.setTypeOfExchange(rs.getString("TypeOfExchange"));
+                System.out.println(spel.getCategory());
+                spelList.add(spel);
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return spelList;
+    }
+
+
 
 
     public Spel rsSpel(ResultSet rs) throws SQLException {
@@ -67,6 +89,7 @@ public class SpelRepository {
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM Game")){
             while(rs.next()){
+                System.out.println(rs.getString("GameName"));
                 spelList.add(rsSpel(rs));
             }
         }
@@ -90,8 +113,9 @@ public class SpelRepository {
         }
         return null;
     }
+    
 
-    //retunerar lisa med spel sorterade på tillänlighet
+    //retunerar lista med spel sorterade på tillänlighet
     public List<Spel> getSortedSpelList(int pageNr, int itemsPerPage, boolean onlyAvailable) {
 
         List<Spel> subList = new ArrayList<Spel>();
@@ -128,6 +152,7 @@ public class SpelRepository {
         catch(SQLException e){
             e.printStackTrace();
         }
+
         return null;
     }
 
