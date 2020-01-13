@@ -37,13 +37,13 @@
 </nav>
 
 
-<tr th:each="familjespel: ${familjespel}">
+<tr th:each="familj: ${familjespel}">
     <h5>Namn:</h5>
-    <td th:text="${Familjespel.Location}"></td>
+    <td th:text="${familj.Location}"></td>
     <h5>Plats:</h5>
-    <td th:text="${amiljespel.Name}"></td><br>
+    <td th:text="${familj.Name}"></td><br>
     <h5>Typ av byte:</h5>
-    <td th:text="${familjespel.TypeOfExchange}"></td>
+    <td th:text="${familj.TypeOfExchange}"></td>
     <br><br>
 </tr>
 

@@ -22,6 +22,8 @@ public class SpelController {
     @Autowired
     Metods metods;
 
+    @Autowired
+    userRepository repository;
 
     @GetMapping("/spel")
     public String spel() {
@@ -29,8 +31,8 @@ public class SpelController {
     }
 
     @GetMapping("/fragesport")
-    public String fragesport() {
-        // model.addAttribute("fragesport")
+    public String fragesport(Model model) {
+        model.addAttribute("fragesport", spelRepository.getGamesByCategory("'Frågesportsspel'"));
         return "fragesport";
     }
 
@@ -52,6 +54,7 @@ public class SpelController {
         return "strategispel";
     }
 
+
     @GetMapping("/barnspel")
     public String barnspel(Model model) {
         model.addAttribute("barnspel", spelRepository.getGamesByCategory("'Barnspel'"));
@@ -64,14 +67,18 @@ public class SpelController {
         return "familjespel";
     }
 
+
     @GetMapping("/addSpel")
     String form(HttpSession session, Model model) {
         model.addAttribute("spel", new Spel());
-        if (session.getAttribute("userName") != null) {
-
-            return "login";
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        if (user != null && user.getLoggedIn()) {
+            return "addspel";
+//        if (session.getAttribute("userName") != null) {
+//
+//            return "login";
         }
-        return "addSpel";
+        return "login";
     }
 
     @PostMapping("/addSpel")

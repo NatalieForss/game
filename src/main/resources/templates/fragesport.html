@@ -38,13 +38,13 @@
 </nav>
 
 
-<tr th:each="fragesport: ${fragesport}">
+<tr th:each="frage: ${fragesport}">
     <h5>Namn:</h5>
-    <td th:text="${fragesport.Name}"></td>
+    <td th:text="${frage.Name}"></td>
     <h5>Plats:</h5>
-    <td th:text=" ${fragesport.Location}"></td><br>
+    <td th:text="${frage.Location}"></td><br>
     <h5>Typ av byte:</h5>
-    <td th:text=" ${fragesport.TypeOfExchange}"></td>
+    <td th:text="${frage.TypeOfExchange}"></td>
     <br><br>
 </tr>
 
