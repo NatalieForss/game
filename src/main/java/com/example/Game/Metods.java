@@ -11,24 +11,20 @@ public class Metods {
     @Autowired
     userRepository userRepository;
     @Autowired
-   SpelRepository spelRepository;
+    SpelRepository spelRepository;
 
 
-    public UserInfo getUser(String username){
+    public UserInfo getUser(String username) {
         return userRepository.getUserByUsername(username);
     }
 
-    public void addUser(UserInfo user){
+    public void addUser(UserInfo user) {
         userRepository.addUser(user);
     }
 
 
-/* public Spel getSpel(Integer id) {
-        return SpelRepository.getSpel(id);
-    }*/
-
     public void addSpel(Spel spel, int id) {
-       spelRepository.addSpel(spel, id);
+        spelRepository.addSpel(spel, id);
     }
 
     //hämtar spel from DB och sorterar dem i SpelRepository
@@ -37,7 +33,7 @@ public class Metods {
 
         spelRepository.getGame();
 
-        return spelRepository.getSortedSpelList(pageNr, itemsPerPage,onlyAvailable);
+        return spelRepository.getSortedSpelList(pageNr, itemsPerPage, onlyAvailable);
     }
 }
 
