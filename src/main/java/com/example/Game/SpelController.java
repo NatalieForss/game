@@ -22,6 +22,8 @@ public class SpelController {
     @Autowired
     Metods metods;
 
+    @Autowired
+    userRepository repository;
 
     @GetMapping("/spel")
     public String spel() {
@@ -64,14 +66,18 @@ public class SpelController {
         return "familjespel";
     }
 
+
     @GetMapping("/addSpel")
     String form(HttpSession session, Model model) {
         model.addAttribute("spel", new Spel());
-        if (session.getAttribute("userName") != null) {
-
-            return "login";
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        if (user != null && user.getLoggedIn()) {
+            return "addspel";
+//        if (session.getAttribute("userName") != null) {
+//
+//            return "login";
         }
-        return "addSpel";
+        return "login";
     }
 
     @PostMapping("/addSpel")
