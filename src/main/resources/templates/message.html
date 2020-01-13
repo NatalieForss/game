@@ -1,21 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="style.css">
+    <head>
+        <title>Title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" type="image/png" href="logo2.png" />
+    </head>
+
     <form action="/meddelande" method="POST"></form>
     <div class="chat-popup" id="myForm">
-        <form action="/action_page.php" class="form-container">
+        <form action="/action_page.php" class="form-container d-flex justify-content-center align-items-center container">
             <br> <br> <br> <br>
-            <h4>Meddelande</h4>
 
-            <textarea placeholder="Skriv ditt meddelande..." name="msg" required></textarea>
+
+            <textarea placeholder="Skriv ditt meddelande här.." name="msg" required></textarea>
 
             <button type="button" class="btn">
-                <a style="color:#CEE2B3 " href="/meddelande">Skicka</a></button>
+                <a style="color:#CEE2B3 " href="/skickat">Skicka</a></button>
 
-            <button type="button" class="btn cancel" onclick="closeForm()">Avbryt</button>
+            <button type="button" class="btn cancel">   <a style="color:#CEE2B3 " href="/minasidor">Avbryt</a></button>
         </form>
         <br>
         <br>

@@ -15,15 +15,14 @@
 
 <form action="/minasidor" th:object="${user}" method="POST"></form>
 
-<form action="/startpage" method="POST"></form>
+
 
 <nav class="navbar navbar-fixed-top" style="background-color: #e2e2e2">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#"><img id="logo" src="bytaspel2.png" alt="logo"></a>
+            <a class="navbar-brand" href="/spel"><img id="logo" src="bytaspel2.png" alt="logo"></a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="/logout" style="color: black"><span class="glyphicon glyphicon-home"></span> Hem</a></li>
             <li><a href="/addSpel" style="color: black">Lägg upp spel</a></li>
             <li><a href="/addSpel" style="color: black">Meddelanden</a></li>
         </ul>
@@ -68,7 +67,11 @@
                 <p class="text-left"><br><br><br>
                 <p class="title" style="color:black;"> Mina upplagda spel</p>
 
-                <br>
+                <button type="button" class="btn">
+                    <a style="red" href="/meddelande">Skicka meddelande</a></button>
+
+
+                <!-- <br>
                 <p>Namn: Portofino, Italien</p>
                 <p>1000 bitar</p>
                 <p>Plats: Södermalm</p>
@@ -78,11 +81,16 @@
                 </div>
                 <div>
                     <input type="radio" name="status" id="20to39" value="20to39"><label for="20to39" style="color: black">Tillgänglig</label>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 </div>
 
 </body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </html>
