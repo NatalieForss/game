@@ -143,6 +143,12 @@ public class SpelController {
         return "startpage";
     }
 
+    @GetMapping("/aboutUs")
+    public String about(){
+
+        return "aboutUs";
+    }
+
 
 
 }
