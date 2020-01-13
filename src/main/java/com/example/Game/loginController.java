@@ -69,7 +69,23 @@ public class loginController {
     }
 
     @GetMapping("/minasidor")
-    public String mypages() {
-        return "mypage";
+    public String mypages(HttpSession session) {
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        if (user != null && user.getLoggedIn()) {
+            return "mypage";
+        } else {
+            return "login";
+        }
+    }
+
+    @PostMapping("/minasidor")
+    public String loginMypage(HttpSession session, @RequestParam String username, @RequestParam String password) {
+        UserInfo user = repository.ifUserIsLoggedIn(username, password);
+        if (user != null) {
+            session.setAttribute("user", user);
+            return "mypage";
+        } else {
+            return "login";
+        }
     }
 }

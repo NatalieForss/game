@@ -134,6 +134,10 @@ public class SpelController {
         return "aboutUs";
     }
 
+    @GetMapping("/skickat")
+    public String sentmessage(){
 
+        return "messageSent";
+    }
 
 }

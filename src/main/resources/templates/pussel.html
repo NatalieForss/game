@@ -40,6 +40,17 @@
     </div>
 </nav>
 
+
+<tr th:each="pussel: ${pusselspel}">
+    <h5>Namn:</h5>
+    <td th:text="${pussel.Name}"></td>
+    <h5>Plats:</h5>
+    <td th:text=" ${pussel.Location}"></td><br>
+    <h5>Typ av byte:</h5>
+    <td th:text=" ${pussel.TypeOfExchange}"></td>
+    <br><br>
+</tr>
+
 <!--
 <p>Namn: Portofino, Italien</p>
 <p>1000 bitar</p>

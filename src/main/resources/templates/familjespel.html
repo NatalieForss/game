@@ -20,23 +20,11 @@
             <a class="navbar-brand" href="#"><img id="logo" src="bytaspel2.png" alt="logo"></a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="/logout" style="color: black"><span class="glyphicon glyphicon-home"></span> Hem</a></li>
+            <li><a href="/spel" style="color: black"><span class="glyphicon glyphicon-home"></span> Hem</a></li>
         </ul>
     </div>
 </nav>
 
-
-
-
-
-
-<tr th:each="familj: ${familjespel}">
-    <td th:text="${familj.Category}" />
-    <td th:text="${familj.Location}" />
-    <td th:text="$familj.Name}" />
-    <td th:text="${familj.TypeOfExchange}" />
-    <br>
-</tr>
 
 
 
@@ -66,6 +54,17 @@
         </div>
     </div>
 </nav>
+
+
+<tr th:each="familjespel: ${familjespel}">
+    <h5>Namn:</h5>
+    <td th:text="${Familjespel.Location}"></td>
+    <h5>Plats:</h5>
+    <td th:text="${amiljespel.Name}"></td><br>
+    <h5>Typ av byte:</h5>
+    <td th:text="${familjespel.TypeOfExchange}"></td>
+    <br><br>
+</tr>
 
 </body>
 </html>

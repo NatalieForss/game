@@ -12,67 +12,102 @@
     <link rel="shortcut icon" type="image/png" href="logo2.png"/>
 </head>
 <body>
-<form action="/addSpel" method="POST" th:object="${spel}">
-    <div class="form" style="color: black;">
-        <div class="d-flex justify-content-center align-items-center container">
-            <div class="form-group row">
-                <div class="p-5 bg-sucess">
-                    <div class="text-center">
-                        <p class="title" style="color: black;">
-                        <h2>Lägg upp spel </h2></p>
-                        <label for kategori="category" class="col-md-auto col-form-label"><h4>Spel namn</h4></label>
-                        <input type="text" class="form-control" name="name" placeholder="Spel namn" th:field="*{name}">
-                        <br>
-                        <h4> Välj kategori</h4>
-                        <div class="form-group">
-                            <select class="form-control" id="sel1" th:field="*{category}">
-                                <option value="Barnspel">Barnspel</option>
-                                <option value="Familjespel">Familjespel</option>
-                                <option value="Frågesportsspel">Frågesportsspel</option>
-                                <option value="Musikspel">Musikspel</option>
-                                <option value="Pussel">Pussel</option>
-                                <option value="Strategispel">Strategispel</option>
-                            </select>
+    <form action="/addSpel" method="POST" th:object="${spel}">
+
+        <nav class="navbar navbar-fixed-top" style="background-color: #e2e2e2">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/spel"><img id="logo" src="bytaspel2.png" alt="logo"></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/logout" style="color: black"><span class="glyphicon glyphicon-home"></span> Hem</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/logout" style="color: black"><span class="glyphicon glyphicon-log-out"></span> Logga ut</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <nav class="navbar navbar-fixed-bottom" style="background-color: #e2e2e2">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"></a>
+                </div>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="/omoss" style="color: black">Om oss</a></li>
+                </ul>
+
+                <div class="footer-copyright"><br>
+                    <p>© 2020 Copyright: Byta Spel</p>
+
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="form" style="color: black;">
+            <div class="d-flex justify-content-center align-items-center container">
+                <div class="form-group row">
+                    <div class="p-5 bg-sucess">
+                        <div class="text-center">
+                            <p class="title" style="color: black;">
+                            <h2>Lägg upp spel </h2></p>
+                            <label for kategori="category" class="col-md-auto col-form-label"><h4>Spel namn</h4></label>
+                            <input type="text" class="form-control" name="name" placeholder="Spel namn" th:field="*{name}">
                             <br>
-                            <h4>Vad vill du göra med spelet?</h4>
+                            <h4> Välj kategori</h4>
                             <div class="form-group">
-                                <select class="form-control" id="sel2" th:field="*{typeOfExchange}">
-                                    <option value="Skänka bort">Skänka bort</option>
-                                    <option value="Låna ut">Låna ut</option>
+                                <select class="form-control" id="sel1" th:field="*{category}">
+                                    <option value="Barnspel">Barnspel</option>
+
+                                    <option value="Familjespel">Familjespel</option>
+                                    <option value="Frågesportsspel">Frågesportsspel</option>
+                                    <option value="Musikspel">Musikspel</option>
+                                    <option value="Pussel">Pussel</option>
+                                    <option value="Strategispel">Strategispel</option>
                                 </select>
                                 <br>
-                                <h4>Var kan spelet lämnas ut?</h4>
+                                <h4>Vad vill du göra med spelet?</h4>
                                 <div class="form-group">
-                                    <select class="form-control" id="sel3" th:field="*{location}">
-                                        <option value="Botkyrka">Botkyrka</option>
-                                        <option value="Danderyd">Danderyd</option>
-                                        <option value="Ekerö">Ekerö</option>
-                                        <option value="Haninge">Haninge</option>
-                                        <option value="Huddinge">Huddinge</option>
-                                        <option value="Järfälla">Järfälla</option>
-                                        <option value="Lidingö">Lidingö</option>
-                                        <option value="Nacka">Nacka</option>
-                                        <option value="Norrtälje">Norrtälje</option>
-                                        <option value="Nykvarn">Nykvarn</option>
-                                        <option value="Nykvarn">Nykvarn</option>
-                                        <option value="Salem">Salem</option>
-                                        <option value="Sigtuna">Sigtuna</option>
-                                        <option value="Sollentuna">Sollentuna</option>
-                                        <option value="Solna">Solna</option>
-                                        <option value="Stockholm">Stockholm</option>
-                                        <option value="Sundbyberg">Sundbyberg</option>
-                                        <option value="Södertälje">Södertälje</option>
-                                        <option value="Tyresö">Tyresö</option>
-                                        <option value="Täby">Täby</option>
-                                        <option value="Upplands-Bro">Upplands-Bro</option>
-                                        <option value="Upplands Väsby">Upplands Väsby</option>
-                                        <option value="Vallentuna">Vallentuna</option>
-                                        <option value="Vaxholm">Vaxholm</option>
-                                        <option value="Värmdö">Värmdö</option>
-                                        <option value="Österåker">Österåker</option>
+                                    <select class="form-control" id="sel2" th:field="*{typeOfExchange}">
+                                        <option value="Skänka bort">Skänka bort</option>
+                                        <option value="Låna ut">Låna ut</option>
                                     </select>
                                     <br>
-                                    <input type="submit" class="btn btn-primary" value="Lägga upp"></input>
+                                    <h4>Var kan spelet lämnas ut?</h4>
+                                    <div class="form-group">
+                                        <select class="form-control" id="sel3" th:field="*{location}">
+                                            <option value="Botkyrka">Botkyrka</option>
+                                            <option value="Danderyd">Danderyd</option>
+                                            <option value="Ekerö">Ekerö</option>
+                                            <option value="Haninge">Haninge</option>
+                                            <option value="Huddinge">Huddinge</option>
+                                            <option value="Järfälla">Järfälla</option>
+                                            <option value="Lidingö">Lidingö</option>
+                                            <option value="Nacka">Nacka</option>
+                                            <option value="Norrtälje">Norrtälje</option>
+                                            <option value="Nykvarn">Nykvarn</option>
+                                            <option value="Nykvarn">Nykvarn</option>
+                                            <option value="Salem">Salem</option>
+                                            <option value="Sigtuna">Sigtuna</option>
+                                            <option value="Sollentuna">Sollentuna</option>
+                                            <option value="Solna">Solna</option>
+                                            <option value="Stockholm">Stockholm</option>
+                                            <option value="Sundbyberg">Sundbyberg</option>
+                                            <option value="Södertälje">Södertälje</option>
+                                            <option value="Tyresö">Tyresö</option>
+                                            <option value="Täby">Täby</option>
+                                            <option value="Upplands-Bro">Upplands-Bro</option>
+                                            <option value="Upplands Väsby">Upplands Väsby</option>
+                                            <option value="Vallentuna">Vallentuna</option>
+                                            <option value="Vaxholm">Vaxholm</option>
+                                            <option value="Värmdö">Värmdö</option>
+                                            <option value="Österåker">Österåker</option>
+                                        </select>
+                                        <br>
+                                        <input type="submit" class="btn btn-primary" value="Lägga upp"></input>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -80,37 +115,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</form>
-
-<nav class="navbar navbar-fixed-top" style="background-color: #e2e2e2">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#"><img id="logo" src="bytaspel2.png" alt="logo"></a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="/logout" style="color: black"><span class="glyphicon glyphicon-home"></span> Hem</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="/logout" style="color: black"><span class="glyphicon glyphicon-log-out"></span> Logga ut</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<nav class="navbar navbar-fixed-bottom" style="background-color: #e2e2e2">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#"></a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="/omoss" style="color: black">Om oss</a></li>
-        </ul>
-        <div class="footer-copyright"><br>
-            <p>© 2020 Copyright: Byta Spel</p>
-        </div>
-    </div>
-</nav>
-
+    </form>
 </body>
 </html>
