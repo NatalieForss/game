@@ -128,7 +128,7 @@ public class SpelController {
         return "startpage";
     }
 
-    @GetMapping("/aboutUs")
+    @GetMapping("/omoss")
     public String about(){
 
         return "aboutUs";

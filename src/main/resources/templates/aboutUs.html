@@ -1,75 +1,54 @@
 <!DOCTYPE html>
-<nav lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+        <title>Title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
-
-    <title>Title</title>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
-    <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" type="image/png" href="logo2.png"/>
 </head>
-<nav>
-    <form action="/aboutUs" method="POST"></form>
-<nav class="navbar fixed-top" style="background-color: #e2e2e2">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                <img src="dice2.jpg" alt="logo" style="width:40px;"></a>
-        </div>
-
-        <form class="navbar-form navbar-left" action="/action_page.php">
-            <div class="input-group"></div>
-
-            <nav class="navbar navbar-fixed-bottom" style="background-color: #e2e2e2">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="#"></a>
-                    </div>
-                </div>
-
-
-
-    <div class="footer-copyright text-center text-black-50 py-3"><br>
-        <p>© 2020 Copyright: Byta Spel</p>
-
-    </div>
-
-</nav>
-        </form>
-    </div>
-</nav>
-</nav>
-</nav>
-
-
 <body>
 
+        <form action="/omoss" method="POST"></form>
         <div class="text-center">
             <h1> Om Byta spel</h1>
             <p>Byta spel är en hemsida som skapades av en grupp tjejer under deras examensarbete. <br>
 
                 Vi tror att delningsekonomin bara har startat och att den redan har ha en positiv påverkan på miljön.<br>
-                Delningsekonomin kommer fortsätta växa och hitta nya områden och detta är ett exempel på ett nytt område!<br><br>
+                Delningsekonomin kommer fortsätta växa och hitta nya områden och detta är ett exempel på ett nytt
+                område!<br><br>
                 På hemsidan kan du både låna och låna ut spel eller varför inte skänka bort spel som du inte behöver längre?<br>
-                Att annonsera på Byta spel är helt gratis ! <br>
+                Att annonsera på Byta spel är helt gratis! <br>
                 När du lånar ut så har du direk kontakt med den person som vill låna spel.
-
-
             </p>
         </div>
+        <nav class="navbar navbar-fixed-top" style="background-color: #e2e2e2">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><img id="logo" src="bytaspel2.png" alt="logo"></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/logout" style="color: black"><span class="glyphicon glyphicon-home"></span> Hem</a></li>
+                </ul>
+            </div>
+        </nav>
 
+        <nav class="navbar navbar-fixed-bottom" style="background-color: #e2e2e2">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"></a>
+                </div>
+                <div class="footer-copyright"><br>
+                    <p>© 2020 Copyright: Byta Spel</p>
+                </div>
+            </div>
+        </nav>
 
-    </div>
 
 
 </body>
-
-
 </html>
