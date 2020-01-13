@@ -15,12 +15,23 @@ p {
     text-align: center;
 }
 
+a {
+    color: black;
+}
+
 body {
     background-image: url('gray.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
+
+#logo {
+    height: 650%;
+    margin-top: -55px;
+    margin-left: -12px;
+}
+
 
 /* Three image containers (use 25% for four, and 50% for two, etc) */
 .column {
@@ -30,11 +41,10 @@ body {
 }
 
 /* Clear floats after image containers */
-.row::after {
-    content: "";
-    clear: both;
+.row {
     display: table;
-
+    margin-top: 50px;
+    padding: 5px;
 }
 
 .img-thumbnail {
@@ -42,6 +52,11 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+.text-center {
+    text-align: center;
+    display: inline-block;
 }
 
 {box-sizing: border-box;}

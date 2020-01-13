@@ -1,33 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-
-
+    <title>Title</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!--
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-          crossorigin="anonymous">  -->
 
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="logo2.png" />
 </head>
 <body>
 
 <form action="/minasidor" th:object="${user}" method="POST"></form>
 
 <form action="/startpage" method="POST"></form>
-<nav class="navbar fixed-top" style="background-color: #e2e2e2">
+
+<nav class="navbar navbar-fixed-top" style="background-color: #e2e2e2">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#"></a>
+            <a class="navbar-brand" href="#"><img id="logo" src="bytaspel2.png" alt="logo"></a>
         </div>
         <ul class="nav navbar-nav">
             <li><a href="/addSpel" style="color: black">Lägg upp spel</a></li>
@@ -50,9 +43,23 @@
     </div>
 </nav>
 
+<nav class="navbar navbar-fixed-bottom" style="background-color: #e2e2e2">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"></a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/omoss" style="color: black">Om oss</a></li>
+        </ul>
+
+        <div class="footer-copyright"><br>
+            <p>© 2020 Copyright: Byta Spel</p>
+
+        </div>
+    </div>
+</nav>
 
 
-</div></div></nav>
 <div class="form" style="color: rgb(255,255,255);">
     <div class="d-flex justify-content-left align-items-left container">
         <div class="form-group row">
@@ -66,70 +73,15 @@
                 <p>Plats: Södermalm</p>
                 <p>  <p>Status:</p>
                 <div>
-
                     <input type="radio" name="status" id="lt20" value="lt20"> <label for="lt20" style="color: black">Utlånad</label>
                 </div>
                 <div>
-
                     <input type="radio" name="status" id="20to39" value="20to39"><label for="20to39" style="color: black">Tillgänglig</label>
                 </div>
-
             </div>
-                </p>
-
-
-
-
-
-
-            </form>
-
-            <nav class="navbar  navbar-fixed-bottom" style="background-color: #e2e2e2">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#"></a>
-                </div>
-                <ul class="nav navbar-nav"> <br>
-                    <p>Om oss</p>
-                </ul>
-            </div>
-        </nav>
-                    </div>
-
-        </div>
         </div>
     </div>
 </div>
-</div>
-
 
 </body>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>
-
-<!--
-<form action="/minasidor" th:object="${user}" method="POST"></form>
-<nav class="navbar fixed-top" style="background-color: black">
-    <div class="navbar-brand" href="#">
-        <a style="color:#CEE2B3 " href="/logout">Tillbaka till startsida </a></button><p></p>
-        <a style="color:#CEE2B3 " href="/logout">Logga ut</a></button>
-        <a style="color:#CEE2B3 " href="/addSpel">Lägg upp spel </a></button>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div></div></nav>
-<div class="form" style="color: rgb(255,255,255);">
-    <div class="d-flex justify-content-center align-items-center container">
-        <div class="form-group row">
-            <div class="p-5 bg-sucess">
-                <div class="text-center">
-                    <p class="title" style="color: rgb(255,255,255);"></p>
-<h1>Mina sidor</h1>
-
-                </div></div></div></div></div>
-</body>
-</html> -->
