@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Title</title>
     <meta charset="UTF-8">
@@ -39,6 +39,17 @@
         </div>
     </div>
 </nav>
+
+
+<tr th:each="musik: ${musikspel}">
+    <h5>Namn:</h5>
+    <td th:text="${musik.Name}"></td>
+    <h5>Plats:</h5>
+    <td th:text=" ${musik.Location}"></td><br>
+    <h5>Typ av byte:</h5>
+    <td th:text=" ${musik.TypeOfExchange}"></td>
+    <br><br>
+</tr>
 
 </body>
 </html>
