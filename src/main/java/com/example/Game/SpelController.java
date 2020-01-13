@@ -52,6 +52,7 @@ public class SpelController {
         return "strategispel";
     }
 
+
     @GetMapping("/barnspel")
     public String barnspel(Model model) {
         model.addAttribute("barnspel", spelRepository.getGamesByCategory("'Barnspel'"));
