@@ -10,16 +10,19 @@ h3 {
     color: black;
 }
 
+/*Copyright*/
 p {
     color: black;
     text-align: center;
 }
 
+/*Categories*/
 a {
-    color: black;
+    color: #524f52;
 }
 
 body {
+    background-color: #EEECF1;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -40,8 +43,8 @@ body {
 }
 
 .rubrik {
-    font-family: verdana;
-    font-weight: bold;
+    font-family: Galada;
+    font-weight: normal;
     color: #f25e5e;
 }
 
@@ -140,9 +143,17 @@ body {
 
 
 h5 {
-    font-family: verdana;
+    font-family: Galada;
     font-weight: bold;
     color: #524f52;
+}
+
+.navbar-fixed-bottom {
+    background-color: #ADC3D1;
+}
+
+.navbar-fixed-top {
+    background-color: #ADC3D1;
 }
 
 
