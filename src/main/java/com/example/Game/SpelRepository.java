@@ -1,5 +1,7 @@
 package com.example.Game;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -15,12 +17,12 @@ import java.util.List;
 @Repository
 public class SpelRepository {
 
+
     @Autowired
     DataSource dataSource;
 
     //instance variables
     private List<Spel> spelList;
-
 
     private Spel spel = null;
 
@@ -40,7 +42,6 @@ public class SpelRepository {
                 spel.setLocation(rs.getString("Location"));
                 spel.setName(rs.getString("GameName"));
                 spel.setTypeOfExchange(rs.getString("TypeOfExchange"));
-                System.out.println(spel.getCategory());
                 spelList.add(spel);
             }
         }
@@ -49,8 +50,6 @@ public class SpelRepository {
         }
         return spelList;
     }
-
-
 
 
     public Spel rsSpel(ResultSet rs) throws SQLException {

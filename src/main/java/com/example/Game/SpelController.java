@@ -35,20 +35,20 @@ public class SpelController {
     }
 
     @GetMapping("/musik")
-    public String musik() {
-        // model.addAttribute("musik")
+    public String musik(Model model) {
+        model.addAttribute("musikspel", spelRepository.getGamesByCategory("'Musikspel'"));
         return "musik";
     }
 
     @GetMapping("/pussel")
-    public String pussel() {
-        // model.addAttribute("pussel")
+    public String pussel(Model model) {
+        model.addAttribute("pussel", spelRepository.getGamesByCategory("'Pussel'"));
         return "pussel";
     }
 
     @GetMapping("/strategispel")
-    public String strategispel() {
-        // model.addAttribute("strategispel")
+    public String strategispel(Model model) {
+        model.addAttribute("strategispel", spelRepository.getGamesByCategory("'Strategispel'"));
         return "strategispel";
     }
 
@@ -59,8 +59,8 @@ public class SpelController {
     }
 
     @GetMapping("/familjespel")
-    public String familjespel() {
-        // model.addAttribute("familjespel")
+    public String familjespel(Model model) {
+        model.addAttribute("familjespel", spelRepository.getGamesByCategory("'Familjespel'"));
         return "familjespel";
     }
 
@@ -80,18 +80,8 @@ public class SpelController {
             return "addSpel";
         }
 
-        model.addAttribute("spel", spel);
         UserInfo userInfo = (UserInfo) session.getAttribute("user");
-
         metods.addSpel(spel, userInfo.getId());
-
-        List<Spel> spels = (List<Spel>) session.getAttribute("spels");
-        if (spels == null) {
-            spels = new ArrayList<>();
-            session.setAttribute("spels", spels);
-        }
-
-        spels.add(spel);
 
         return "confirmation";
     }

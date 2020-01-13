@@ -9,6 +9,12 @@
 
 <h3>familjespel</h3>
 
+<tr th:each="barn: ${familjespel}">
+    <td th:text="${barn.Category}" />
+    <td th:text="${barn.Location}" />
+    <td th:text="${barn.Name}" />
+    <td th:text="${barn.TypeOfExchange}" />
+</tr>
 
 
 
