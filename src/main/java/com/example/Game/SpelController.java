@@ -29,8 +29,8 @@ public class SpelController {
     }
 
     @GetMapping("/fragesport")
-    public String fragesport() {
-        // model.addAttribute("fragesport")
+    public String fragesport(Model model) {
+        model.addAttribute("fragesport", spelRepository.getGamesByCategory("'Frågesportsspel'"));
         return "fragesport";
     }
 
