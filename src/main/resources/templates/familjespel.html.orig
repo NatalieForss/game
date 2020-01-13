@@ -14,34 +14,21 @@
 <body>
 <form action="/familjespel" method="POST"></form>
 
-<nav class="navbar navbar-fixed-top" style="background-color: #e2e2e2">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#"><img id="logo" src="bytaspel2.png" alt="logo"></a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="/logout" style="color: black"><span class="glyphicon glyphicon-home"></span> Hem</a></li>
-        </ul>
-    </div>
-</nav>
+<<<<<<< HEAD
+<h3>familjespel</h3>
 
-
-
-
-
-
-<tr th:each="familj: ${familjespel}">
-    <td th:text="${familj.Category}" />
-    <td th:text="${familj.Location}" />
-    <td th:text="$familj.Name}" />
-    <td th:text="${familj.TypeOfExchange}" />
-    <br>
+<tr th:each="barn: ${familjespel}">
+    <td th:text="${barn.Category}" />
+    <td th:text="${barn.Location}" />
+    <td th:text="${barn.Name}" />
+    <td th:text="${barn.TypeOfExchange}" />
 </tr>
 
 
 
 
 
+=======
 <nav class="navbar navbar-fixed-top" style="background-color: #e2e2e2">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -66,6 +53,7 @@
         </div>
     </div>
 </nav>
+>>>>>>> 9a09d90a7d97e48c49e7f0db4878cca39bb33a97
 
 </body>
 </html>
