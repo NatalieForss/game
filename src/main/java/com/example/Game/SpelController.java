@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -32,9 +31,11 @@ public class SpelController {
 
     @GetMapping("/fragesport")
     public String fragesport(Model model) {
-        model.addAttribute("fragesport", spelRepository.getGamesByCategory("'Frågesportsspel'"));
+      List<Spel> result =  spelRepository.getGamesByCategory("'Frågesportsspel'");
+        model.addAttribute("fragesport", spelRepository.getGameOwner(result));
         return "fragesport";
     }
+
 
     @GetMapping("/musik")
     public String musik(Model model) {
@@ -155,12 +156,13 @@ public class SpelController {
 
     @GetMapping("/search")
     public String searchForGames(@RequestParam String search, Model model) {
-        System.out.println(search);
-        model.addAttribute("gamename", spelRepository.getGameByGamename("'search'"));
-
-        return "searchFunction";
+        List<Spel> result = spelRepository.getGamesByGameName(search);
+        if (result.isEmpty()) {
+            return "nohit"; //TODO
+        }
+        model.addAttribute("searchResult", spelRepository.getGameOwner(result));
+        return "searchResult";
     }
-
 
 
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
+<body>
     <meta charset="UTF-8">
     <title>Title</title>
     <head>
@@ -13,33 +13,46 @@
 
         <link href="https://fonts.googleapis.com/css?family=Galada&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <link rel="script" href="test.js">
         <link rel="shortcut icon" type="image/png" href="logo2.png" />
     </head>
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-6">
-    <form action="/meddelande" method="POST"></form>
     <div class="chat-popup" id="myForm">
         <form action="/action_page.php" class="form-container">
-            <br> <br> <br> <br>
+            <h1>Chat</h1>
 
-            <textarea placeholder="Skriv ditt meddelande här.." name="msg" required></textarea>
+<!--            <label for="msg"><b>Message</b></label>-->
+            <textarea placeholder="Type message.." name="msg" required></textarea>
 
-            <button type="button" class="btn">
-                <a style="color:#CEE2B3 " href="/skickat">Skicka</a></button>
-
-            <button type="button" class="btn cancel">   <a style="color:#CEE2B3 " href="/minasidor">Avbryt</a></button>
+            <button type="submit" class="btn">Send</button>
+            <button type="button" class="btn cancel" onclick="closeForm()" href="/spel">Close</button>
         </form>
-        <br>
-        <br>
     </div>
-            </div></div></div>
-    <br>
-        <br>
-    </div>
-        </div></div></div>
-    </body>
+</body>
+
+<!--    <div class="container">-->
+<!--        <div class="row justify-content-center">-->
+<!--            <div class="col-6">-->
+<!--    <form action="/meddelande" method="POST"></form>-->
+<!--    <div class="chat-popup" id="myForm">-->
+<!--        <form action="/action_page.php" class="form-container">-->
+<!--            <br> <br> <br> <br>-->
+
+<!--            <textarea placeholder="Skriv ditt meddelande här.." name="msg" required></textarea>-->
+
+<!--            <button type="button" class="btn">-->
+<!--                <a style="color:#CEE2B3 " href="/skickat">Skicka</a></button>-->
+
+<!--            <button type="button" class="btn cancel">   <a style="color:#CEE2B3 " href="/minasidor">Avbryt</a></button>-->
+<!--        </form>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--    </div>-->
+<!--            </div></div></div>-->
+<!--    <br>-->
+<!--        <br>-->
+<!--    </div>-->
+<!--        </div></div></div>-->
+<!--    </body>-->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

@@ -42,6 +42,7 @@ public class SpelRepository {
                 spel.setLocation(rs.getString("Location"));
                 spel.setName(rs.getString("GameName"));
                 spel.setTypeOfExchange(rs.getString("TypeOfExchange"));
+                spel.setUserID(rs.getString("UserId"));
                 spelList.add(spel);
             }
         }
@@ -50,6 +51,54 @@ public class SpelRepository {
         }
         return spelList;
     }
+
+    public List<Spel> getGamesByGameName(String name) {
+        spelList.clear();
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM Game WHERE GameName='" + name+"'")){
+            while(rs.next()){
+                Spel spel = new Spel();
+                spel.setName(rs.getString("GameName"));
+                spel.setLocation(rs.getString("Location"));
+                spel.setTypeOfExchange(rs.getString("TypeOfExchange"));
+                spel.setUserID(rs.getString("UserId"));
+
+                spelList.add(spel);
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return spelList;
+    }
+
+    public List<SearchResult> getGameOwner(List<Spel> spel) {
+        List<SearchResult> searchResults = new ArrayList<>();
+        for (Spel s: spel) {
+            try (Connection conn = dataSource.getConnection();
+                 Statement stmt = conn.createStatement();
+                 ResultSet rs = stmt.executeQuery("SELECT * FROM [User] WHERE UserId='" + s.getUserID() + "'")) {
+                while (rs.next()) {
+                    UserInfo user = new UserInfo();
+                    user.setMail(rs.getString("Mail"));
+                    user.setUserName(rs.getString("UserName"));
+                    SearchResult result = new SearchResult();
+                    result.setGameName(s.getName());
+                    result.setLocation(s.getLocation());
+                    result.setTypeOfExchange(s.getTypeOfExchange());
+                    result.setUserInfo(user);
+                    searchResults.add(result);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return searchResults;
+    }
+
+
+
 
 
     public Spel rsSpel(ResultSet rs) throws SQLException {
@@ -98,21 +147,21 @@ public class SpelRepository {
         return spelList;
     }
 
-    public Spel getGameByGamename(String gamename){
-
-        try (Connection conn = dataSource.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM Game WHERE GameName='" + gamename + "'")){
-            if(rs.next()){
-                return rsSpel(rs);
-            }
-        }
-        catch(SQLException e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-    
+//    public Spel getGameByGamename(String gamename){
+//
+//        try (Connection conn = dataSource.getConnection();
+//             Statement stmt = conn.createStatement();
+//             ResultSet rs = stmt.executeQuery("SELECT * FROM Game WHERE GameName='" + gamename + "'")){
+//            if(rs.next()){
+//                return rsSpel(rs);
+//            }
+//        }
+//        catch(SQLException e){
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
+//
 
     //retunerar lista med spel sorterade på tillänlighet
     public List<Spel> getSortedSpelList(int pageNr, int itemsPerPage, boolean onlyAvailable) {

@@ -7,6 +7,7 @@ public class Spel {
     private String location;
     private String typeOfExchange;
     private String category;
+    private String userID;
 
 
     public Spel(int id, String name, boolean status, String location, String typeOfExchange, String category) {
@@ -76,6 +77,14 @@ public class Spel {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public String getUserID() {
+        return userID;
     }
 }
 

@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<form action="/fragesport" method="POST"></form>
+<form action="/searchResult" method="POST"></form>
 
 <nav class="navbar navbar-fixed-top">
     <div class="container-fluid">
@@ -40,23 +40,22 @@
 
 
 </tr>
-
-<tr th:each="frage: ${fragesport}">
-    <h5>Namn:</h5>
-    <td th:text="${frage.GameName}"></td>
-    <h5>Plats:</h5>
-    <td th:text="${frage.Location}"></td><br>
-    <h5>Typ av byte:</h5>
-    <td th:text="${frage.TypeOfExchange}"></td><br>
-    <h5>Användarens uppgifter:</h5>
-    <h5>Mail:</h5>
-    <a href=mailto: subject="HTML link"> <td th:text="${frage.UserInfo.Mail}"></td></a><br>
-<!--    <td th:text="${frage.UserInfo.Mail}"></td><br>-->
-    <h5>Användarnamn</h5>
-    <td th:text="${frage.UserInfo.userName}"></td>
+<div class="container">
+    <div class="row justify-center">
+<tr th:each="search: ${searchResult}">
+    <th>Spelnamn:</th>
+    <td th:text="${search.GameName}"></td><br>
+    <th>Ort:</th>
+    <td th:text="${search.Location}"></td><br>
+    <th>Typ av utbyte:</th>
+    <td th:text="${search.TypeOfExchange}"></td><br>
+    <th>Ägarens uppgifter:</th>
+    <td th:text="${search.UserInfo.Mail}"></td>
+    <td th:text="${search.UserInfo.UserName}"></td>
     <br>
-    <br><br>
 </tr>
+</div>
+</div>
 
 </body>
 </html>
