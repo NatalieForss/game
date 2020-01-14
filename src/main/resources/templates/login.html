@@ -14,33 +14,7 @@
     <link rel="shortcut icon" type="image/png" href="logo2.png" />
 </head>
 <body>
-
-<nav class="navbar navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/spel"><img id="logo" src="bytaspel2.png" alt="logo"></a>
-        </div>
-    </div>
-    </a>
-</nav>
-
-
-<nav class="navbar navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#"></a>
-        </div>
-
-        <ul class="nav navbar-nav">
-            <li><a href="/omoss" style="color: black">Om oss</a></li>
-        </ul>
-
-        <div class="footer-copyright"><br>
-            <p>© 2020 Copyright: Byta Spel</p>
-
-        </div>
-    </div>
-</nav>
+<div th:replace="fragments2 :: header2"></div>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -71,6 +45,8 @@
         </div>
     </div>
 </div>
+
+<div th:replace="fragments2 :: footer2"></div>
 
 </body>
 </html>

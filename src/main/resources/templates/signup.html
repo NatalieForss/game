@@ -13,61 +13,43 @@
     <link rel="shortcut icon" type="image/png" href="logo2.png"/>
 </head>
 <body>
+<div th:replace="fragments2 :: header2"></div>
+
 <div class="form" style="color: black;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-            <div class="p-5 bg-sucess">
-                <div class="text-center">
-                    <p class="title" style="color: black;"></p>
+                <div class="p-5 bg-sucess">
+                    <div class="text-center">
+                        <p class="title" style="color: black;"></p>
                         <h2>Registrera dig här</h2>
 
-                    <form action="/signup" th:object="${user}" method="POST">
-                        <label for name="mail" class="col-md-auto col-form-label"><h4>E-post</h4></label>
-                        <input type="text" class="form-control" name="mail" placeholder="E-post">
-                        <br>
-                        <label for name="username" class="col-md-auto col-form-label"><h4>Användarnamn</h4></label>
-                        <input type="text" class="form-control" name="userName" placeholder="Användarnamn">
-                        <br>
-                        <label for password="password" class="col-sm col-form-label"><h4>Lösenord</h4></label>
-                        <input type="password" class="form-control" name="password" placeholder="Lösenord">
-                        <br>
+                        <form action="/signup" th:object="${user}" method="POST">
+                            <label for name="mail" class="col-md-auto col-form-label"><h4>E-post</h4></label>
+                            <input type="text" class="form-control" name="mail" placeholder="E-post">
+                            <br>
+                            <label for name="username" class="col-md-auto col-form-label"><h4>Användarnamn</h4></label>
+                            <input type="text" class="form-control" name="userName" placeholder="Användarnamn">
+                            <br>
+                            <label for password="password" class="col-sm col-form-label"><h4>Lösenord</h4></label>
+                            <input type="password" class="form-control" name="password" placeholder="Lösenord">
+                            <br>
 
-                        <div class="col-sm-auto">
-                            <div class="p-2 bg-sucess">
-                                <input type="submit" class="btn btn-primary" value="Registrera"></div>
-                        </div>
-                        <ul>
-                            <li th:each="userInfo : ${session.users}" th:text="${userInfo}"></li>
-                        </ul>
-
-                        <nav class="navbar navbar-fixed-top">
-                            <div class="container-fluid">
-                                <div class="navbar-header">
-                                    <a class="navbar-brand" href="/spel"><img id="logo" src="bytaspel2.png" alt="logo"></a>
-                                </div>
+                            <div class="col-sm-auto">
+                                <div class="p-2 bg-sucess">
+                                    <input type="submit" class="btn btn-primary" value="Registrera"></div>
                             </div>
-                        </nav>
-
-                        <nav class="navbar navbar-fixed-bottom">
-                            <div class="container-fluid">
-                                <div class="navbar-header">
-                                    <a class="navbar-brand" href="#"></a>
-                                </div>
-                                <ul class="nav navbar-nav">
-                                    <li><a href="/omoss" style="color: black">Om oss</a></li>
-                                </ul>
-                                <div class="footer-copyright"><br>
-                                    <p>© 2020 Copyright: Byta Spel</p>
-                                </div>
-                            </div>
-                        </nav>
-                    </form>
+                            <ul>
+                                <li th:each="userInfo : ${session.users}" th:text="${userInfo}"></li>
+                            </ul>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div th:replace="fragments2 :: footer2"></div>
 
 </body>
 </html>
