@@ -73,12 +73,12 @@ public class SpelController {
         model.addAttribute("spel", new Spel());
         UserInfo user = (UserInfo) session.getAttribute("user");
         if (user != null && user.getLoggedIn()) {
-            return "addspel";
+            return "addSpel";
 //        if (session.getAttribute("userName") != null) {
 //
 //            return "login";
         }
-        return "login";
+        return "login2";
     }
 
     @PostMapping("/addSpel")
@@ -87,11 +87,17 @@ public class SpelController {
             return "addSpel";
         }
 
-        UserInfo userInfo = (UserInfo) session.getAttribute("user");
-        metods.addSpel(spel, userInfo.getId());
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        if (user == null ) {
+            return "login2";
+        }
 
-        return "confirmation";
-    }
+            UserInfo userInfo = (UserInfo) session.getAttribute("user");
+            metods.addSpel(spel, userInfo.getId());
+
+            return "confirmation";
+        }
+
 
 
     @GetMapping("/confirmation")

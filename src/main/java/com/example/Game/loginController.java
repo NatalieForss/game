@@ -88,4 +88,22 @@ public class loginController {
             return "login";
         }
     }
+
+    @GetMapping("/login2")
+    public String login2(HttpSession session) {
+
+            return "redirect:/addSpel";
+        }
+
+
+    @PostMapping("/login2")
+    public String login2Post(HttpSession session, @RequestParam String username, @RequestParam String password) {
+        UserInfo user = repository.ifUserIsLoggedIn(username, password);
+        if (user != null) {
+            session.setAttribute("user", user);
+            return "redirect:/addSpel";
+        } else {
+            return "login2";
+        }
+    }
 }

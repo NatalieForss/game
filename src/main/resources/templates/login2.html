@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="logo2.png" />
+</head>
+<body>
+
+<nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/spel"><img id="logo" src="bytaspel2.png" alt="logo"></a>
+        </div>
+    </div>
+    </a>
+</nav>
+
+
+<nav class="navbar navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"></a>
+        </div>
+
+        <ul class="nav navbar-nav">
+            <li><a href="/omoss" style="color: black">Om oss</a></li>
+        </ul>
+
+        <div class="footer-copyright"><br>
+            <p>© 2020 Copyright: Byta Spel</p>
+
+        </div>
+    </div>
+</nav>
+
+<div class="form" style="color: black;">
+    <div class="d-flex justify-content-center align-items-center container">
+        <div class="form-group row">
+            <div class="p-5 bg-sucess">
+                <div class="text-center">
+                    <p class="title" style="color: black;"></p>
+                    <h2>Logga in här</h2>
+                    <form action="/login2" th:object="${user}" method="POST">
+                        <label for name="username" class="col-md-auto col-form-label"><h4>Användarnamn</h4></label>
+                        <input type="text" class="form-control" name="username" placeholder="Användarnamn">
+                        <br>
+                        <label for password="password" class="col-sm col-form-label"><h4>Lösenord</h4></label>
+                        <input type="password" class="form-control" name="password" placeholder="Lösenord">
+                        <br>
+                        <div class="col-sm-auto">
+                            <div class="p-2 bg-sucess">
+                                <input type="submit" class="btn btn-primary" value="Logga in"></input>
+                            </div>
+                        </div>
+                        <p><h5 style="color: black">Inte medlem? Registrera dig <a href="/signup" class="link"
+                                                                                   style="color: #f25e5e">här</a>
+                    </h5></p></form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
