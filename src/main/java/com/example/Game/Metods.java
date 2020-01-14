@@ -35,6 +35,10 @@ public class Metods {
 
         return spelRepository.getSortedSpelList(pageNr, itemsPerPage, onlyAvailable);
     }
+
+    public void getGameByGamename(String gamename) {
+        spelRepository.getGameByGamename(gamename);
+    }
 }
 
 

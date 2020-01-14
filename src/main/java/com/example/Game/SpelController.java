@@ -147,4 +147,14 @@ public class SpelController {
         return "messageSent";
     }
 
+    @GetMapping("/search")
+    public String searchForGames(@RequestParam String search, Model model) {
+        System.out.println(search);
+        model.addAttribute("gamename", spelRepository.getGameByGamename("'search'"));
+
+        return "searchFunction";
+    }
+
+
+
 }

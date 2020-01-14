@@ -98,20 +98,20 @@ public class SpelRepository {
         return spelList;
     }
 
-//    public Spel getGameByGamename(String gamename){
-//
-//        try (Connection conn = dataSource.getConnection();
-//             Statement stmt = conn.createStatement();
-//             ResultSet rs = stmt.executeQuery("SELECT * FROM Game WHERE GameName='" + gamename + "'")){
-//            if(rs.next()){
-//                return rsSpel(rs);
-//            }
-//        }
-//        catch(SQLException e){
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
+    public Spel getGameByGamename(String gamename){
+
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM Game WHERE GameName='" + gamename + "'")){
+            if(rs.next()){
+                return rsSpel(rs);
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
     
 
     //retunerar lista med spel sorterade på tillänlighet
