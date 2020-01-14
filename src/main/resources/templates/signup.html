@@ -14,12 +14,13 @@
 </head>
 <body>
 <div class="form" style="color: black;">
-    <div class="d-flex justify-content-center align-items-center container">
-        <div class="form-group row">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
             <div class="p-5 bg-sucess">
                 <div class="text-center">
                     <p class="title" style="color: black;"></p>
-                        <h2>Registrera här</h2>
+                        <h2>Registrera dig här</h2>
 
                     <form action="/signup" th:object="${user}" method="POST">
                         <label for name="mail" class="col-md-auto col-form-label"><h4>E-post</h4></label>
