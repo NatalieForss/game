@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+    <link href="https://fonts.googleapis.com/css?family=Galada&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" type="image/png" href="logo2.png"/>
 </head>
@@ -37,7 +38,22 @@
     </div>
 </nav>
 
-
+<div class="row">
+    <div th:each="pussel: ${pussel}" class="col-md-3">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body" >
+                    <h5 class="card-title">Namn:</h5>
+                    <span class="card-text" th:text="${pussel.Name}"></span>
+                    <h5>Plats:</h5>
+                    <td th:text=" ${pussel.Location}"></td>
+                    <h5>Typ av byte:</h5>
+                    <td th:text=" ${pussel.TypeOfExchange}"></td>
+                    <a href="#" class="btn btn-primary">Skicka meddelande</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
 <tr th:each="pussel: ${pussel}">
     <h5>Namn:</h5>
     <td th:text="${pussel.Name}"></td>
@@ -47,13 +63,6 @@
     <td th:text=" ${pussel.TypeOfExchange}"></td>
     <br><br>
 </tr>
-
-<!--
-<p>Namn: Portofino, Italien</p>
-<p>1000 bitar</p>
-<p>Status: tillgängligt</p>
-<p>Plats: Södermalm</p>
-<img src="pussel3.jpg" alt="Pussel">
 -->
 
 
