@@ -1,5 +1,8 @@
 package com.example.Game;
 
+import org.springframework.web.bind.annotation.RestController;
+
+
 public class SearchResult {
     private String gameName;
     private String typeOfExchange;

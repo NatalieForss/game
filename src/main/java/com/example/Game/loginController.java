@@ -1,6 +1,7 @@
 package com.example.Game;
 
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
+import java.util.List;
 
 
 @Controller
@@ -22,6 +23,10 @@ public class loginController {
 
     @Autowired
     userRepository repository;
+
+    @Autowired
+    SpelRepository spelRepository;
+
 
     @GetMapping("/signup")
     public String signup(HttpSession session, Model model) {
@@ -80,10 +85,14 @@ public class loginController {
     }
 
     @GetMapping("/minasidor")
-    public String mypages(HttpSession session) {
+    public String mypages(HttpSession session, String games, Model model, UserInfo userInfo) {
         UserInfo user = (UserInfo) session.getAttribute("user");
+
         if (user != null && user.getLoggedIn()) {
+            List <Spel> result = spelRepository.getAllGames(user.getId());
+            model.addAttribute("user", spelRepository.getGameOwner(result));
             return "mypage";
+
         } else {
             return "login";
         }
@@ -100,12 +109,12 @@ public class loginController {
         }
     }
 
+
     @GetMapping("/login2")
     public String login2(HttpSession session) {
 
             return "redirect:/addSpel";
         }
-
 
 
 }

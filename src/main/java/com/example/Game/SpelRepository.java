@@ -73,6 +73,27 @@ public class SpelRepository {
         return spelList;
     }
 
+    public List<Spel> getAllGames(int id) {
+        spelList.clear();
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM Game WHERE UserId =" + id)) {
+            while(rs.next()){
+                Spel spel = new Spel();
+                spel.setName(rs.getString("GameName"));
+                spel.setLocation(rs.getString("Location"));
+                spel.setTypeOfExchange(rs.getString("TypeOfExchange"));
+                spel.setUserID(rs.getString("UserId"));
+
+                spelList.add(spel);
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return spelList;
+    }
+
     public List<SearchResult> getGameOwner(List<Spel> spel) {
         List<SearchResult> searchResults = new ArrayList<>();
         for (Spel s: spel) {
@@ -89,6 +110,8 @@ public class SpelRepository {
                     result.setTypeOfExchange(s.getTypeOfExchange());
                     result.setUserInfo(user);
                     searchResults.add(result);
+
+
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
