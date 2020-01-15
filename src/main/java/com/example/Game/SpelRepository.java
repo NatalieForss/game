@@ -77,7 +77,7 @@ public class SpelRepository {
     }
 
     public List<Spel> getAllGames(int id) {
-        spelList.clear();
+        List <Spel>spelList = new ArrayList<>();
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM Game WHERE UserId =" + id)) {
