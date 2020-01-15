@@ -40,5 +40,20 @@
             </div></div></div></div></div></div>
 
 <div th:replace="fragments2 :: footer2"></div>
+
+<div class="pagination2">
+        <span th:if="${showPrev}">
+            <a th:href="'/familjespel?page=' + ${currentPage-1}">Previous</a>
+        </span>
+
+    <span th:each="page : ${pages}">
+            <span th:if="${currentPage == page}" th:text="${page}"></span>
+            <a th:if="${currentPage != page}" th:href="'/familjespel?page=' + ${page}" th:text="${page}"></a>
+        </span>
+
+    <span th:if="${showNext}">
+            <a th:href="'/familjespel?page=' + ${currentPage+1}">Next</a>
+        </span>
+</div>
 </body>
 </html>

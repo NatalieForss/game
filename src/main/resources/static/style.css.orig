@@ -11,14 +11,12 @@ h3 {
 }
 
 h5 {
+<<<<<<< HEAD
 font-family: 'Roboto Slab', serif;
  font-size: 16px;
     font-weight: normal;
     color: black;
 
-}
-h6 {
-    color: black;
 }
 
 .kategoriertext {
@@ -26,6 +24,14 @@ font-family: 'Roboto Slab', serif;
 font-family: 'Muli', sans-serif;
  font-size: 14px;
     font-weight: normal;
+=======
+    font-family: 'Galada';
+    /*font-weight: bold;*/
+    color: #524f52;
+}
+
+h6 {
+>>>>>>> b60ad18e54a25a025318159b8aa4a740aa1171c3
     color: black;
 }
 
@@ -55,7 +61,7 @@ body {
 
 
 /* Three image containers (use 25% for four, and 50% for two, etc) */
-.start {
+.column {
     float: left;
     width: 33.3%;
     padding: 10px;
@@ -70,14 +76,10 @@ body {
 
 
 /* Clear floats after image containers */
-.fixing-start {
+.row {
     display: table;
     margin-top: 50px;
     padding: 5px;
-}
-
-.row {
-    margin-top: 50px;
 }
 
 .img-thumbnail {

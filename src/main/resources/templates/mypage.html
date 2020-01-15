@@ -8,14 +8,40 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Galada&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" type="image/png" href="logo2.png" />
+    <link rel="shortcut icon" type="image/png" href="logo2.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Muli|Roboto+Slab:800&display=swap" rel="stylesheet">
 </head>
-<body>
+<div>
 
-<form action="/minasidor" th:object="${user}" method="POST"></form>
+    <form action="/minasidor1" th:object="${user}" method="POST"></form>
 
+    <div class="kategoriertext">
+    <div class="container">
+        <div class="row justify-content-center">
+            <p class="title" style="color:black;"> Mina upplagda spel</p>
+
+            <div th:each="user: ${user}" class="col-md-3">
+                <div class="card" style="width: 35rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Spelnamn:</h5>
+                        <span class="card-text" th:text="${user.GameName}"></span><br>
+                        <h5>Plats:</h5>
+                        <td th:text="${user.Location}"></td>
+                        <br>
+                        <h5>Användarnamn</h5>
+                        <td th:text="${user.UserInfo.UserName}"></td>
+                        <h5>Mail</h5>
+                        <td th:text="${user.UserInfo.Mail}"></td>
+                        <br><br><br>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div></div>
 
 
 <nav class="navbar navbar-fixed-top">
@@ -39,7 +65,8 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
 
-            <li><a href="/logout" style="color: black"><span class="glyphicon glyphicon-log-out"></span> Logga ut</a></li>
+            <li><a href="/logout" style="color: black"><span class="glyphicon glyphicon-log-out"></span> Logga ut</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -60,40 +87,47 @@
     </div>
 </nav>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-6">
-<div class="form" style="color: rgb(255,255,255);">
-    <div class="d-flex justify-content-left align-items-left container">
-        <div class="form-group row">
-            <div class="p-5 bg-sucess">
-                <p class="text-left"><br><br><br>
-                <p class="title" style="color:black;"> Mina upplagda spel</p>
 
-                <button type="button" class="btn">
-                    <a style="red" href="/meddelande">Skicka meddelande</a></button>
+<!--<div class="container">-->
+<!--    <div class="row justify-content-center">-->
+<!--        <div class="col-6">-->
+<!--<div class="form" style="color: rgb(255,255,255);">-->
+<!--    <div class="d-flex justify-content-left align-items-left container">-->
+<!--        <div class="form-group row">-->
+<!--            <div class="p-5 bg-sucess">-->
+<!--                <p class="text-left"><br><br><br>-->
+<!--                <p class="title" style="color:black;"> Mina upplagda spel</p>-->
+
+<!--                <button type="button" class="btn">-->
+<!--                    <a style="red" href="/meddelande">Skicka meddelande</a></button>-->
 
 
-                <!-- <br>
-                <p>Namn: Portofino, Italien</p>
-                <p>1000 bitar</p>
-                <p>Plats: Södermalm</p>
-                <p>  <p>Status:</p>
-                <div>
-                    <input type="radio" name="status" id="lt20" value="lt20"> <label for="lt20" style="color: black">Utlånad</label>
-                </div>
-                <div>
-                    <input type="radio" name="status" id="20to39" value="20to39"><label for="20to39" style="color: black">Tillgänglig</label>
-                </div> -->
-            </div></div></div></div>
-        </div>
-    </div>
+<!-- <br>
+<p>Namn: Portofino, Italien</p>
+<p>1000 bitar</p>
+<p>Plats: Södermalm</p>
+<p>  <p>Status:</p>
+<div>
+    <input type="radio" name="status" id="lt20" value="lt20"> <label for="lt20" style="color: black">Utlånad</label>
+</div>
+<div>
+    <input type="radio" name="status" id="20to39" value="20to39"><label for="20to39" style="color: black">Tillgänglig</label>
+</div> -->
+</div></div></div></div>
+</div>
+</div>
 </div>
 
 </body>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
 </html>

@@ -27,15 +27,6 @@ public class Metods {
         spelRepository.addSpel(spel, id);
     }
 
-    //hämtar spel from DB och sorterar dem i SpelRepository
-
-    public List<Spel> getSortedSpelList(int pageNr, int itemsPerPage, boolean onlyAvailable) {
-
-        spelRepository.getGame();
-
-        return spelRepository.getSortedSpelList(pageNr, itemsPerPage, onlyAvailable);
-    }
-
     public void getGameByGameName(String gamename) {
         spelRepository.getGamesByGameName(gamename);
     }
