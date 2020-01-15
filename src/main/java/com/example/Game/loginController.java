@@ -62,9 +62,20 @@ public class loginController {
         UserInfo user = repository.ifUserIsLoggedIn(username, password);
         if (user != null) {
             session.setAttribute("user", user);
-            return "mypage";
+            return "redirect:/minasidor";
         } else {
             return "login";
+        }
+    }
+
+    @PostMapping("/login2")
+    public String login2Post(HttpSession session, @RequestParam String username, @RequestParam String password) {
+        UserInfo user = repository.ifUserIsLoggedIn(username, password);
+        if (user != null) {
+            session.setAttribute("user", user);
+            return "redirect:/addSpel";
+        } else {
+            return "login2";
         }
     }
 
@@ -96,14 +107,5 @@ public class loginController {
         }
 
 
-    @PostMapping("/login2")
-    public String login2Post(HttpSession session, @RequestParam String username, @RequestParam String password) {
-        UserInfo user = repository.ifUserIsLoggedIn(username, password);
-        if (user != null) {
-            session.setAttribute("user", user);
-            return "redirect:/addSpel";
-        } else {
-            return "login2";
-        }
-    }
+
 }

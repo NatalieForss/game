@@ -17,7 +17,7 @@ public class userRepository {
 
 
     private List<UserInfo> users;
-    private UserInfo user;
+
 
 
     public userRepository() {
@@ -84,7 +84,7 @@ public class userRepository {
     }
 
     public UserInfo ifUserIsLoggedIn(String name, String password) {
-
+        UserInfo user = null;
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("SELECT * FROM [User] WHERE UserName=? AND Password=?")) {
             ps.setString(1, name);
