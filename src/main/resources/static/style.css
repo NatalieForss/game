@@ -10,6 +10,22 @@ h3 {
     color: black;
 }
 
+h5 {
+font-family: 'Roboto Slab', serif;
+ font-size: 16px;
+    font-weight: normal;
+    color: black;
+
+}
+
+.kategoriertext {
+font-family: 'Roboto Slab', serif;
+font-family: 'Muli', sans-serif;
+ font-size: 14px;
+    font-weight: normal;
+    color: black;
+}
+
 /*Copyright*/
 p {
     color: black;
@@ -48,6 +64,7 @@ body {
     font-weight: normal;
     color: #f25e5e;
 }
+
 
 /* Clear floats after image containers */
 .row {
