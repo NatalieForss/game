@@ -13,9 +13,27 @@
 </head>
 <body>
 
-<div th:replace="fragments2 :: header2"></div>
+<form action="/omoss" method="POST"></form>
 
-        <form action="/omoss" method="POST"></form>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/spel"><img id="logo" src="bytaspel2.png" alt="logo"></a>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="footer-copyright"><br>
+                <p>© 2020 Copyright: Byta Spel</p>
+            </div>
+        </div>
+    </nav>
+
 
 <div class="centrerad">
     <div class="container">
@@ -52,8 +70,6 @@
         </div>
     </div>
 </div>
-
-<div th:replace="fragments2 :: footer2"></div>
 
 </body>
 </html>

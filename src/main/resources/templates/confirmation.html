@@ -13,45 +13,25 @@
     <link rel="shortcut icon" type="image/png" href="logo2.png"/>
 </head>
 <body>
-    <form action="/confirmation" method="POST">
+<div th:replace="fragments2 :: header2"></div>
 
-    <nav class="navbar navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/spel"><img id="logo" src="bytaspel2.png" alt="logo"></a>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/logout" style="color: black"><span class="glyphicon glyphicon-log-out"></span> Logga ut</a></li>
-            </ul>
-        </div>
-    </nav>
+<form action="/confirmation" method="POST"></form>
 
-    <nav class="navbar navbar-fixed-bottom">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#"></a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="/omoss" style="color: black">Om oss</a></li>
-            </ul>
-            <div class="footer-copyright"><br>
-                <p>© 2020 Copyright: Byta Spel</p>
-            </div>
-        </div>
-    </nav>
-
-    <div class="form" style="color: black;">
+      <div class="form" style="color: black;">
         <div class="d-flex justify-content-center align-items-center container">
             <div class="form-group row">
                 <div class="p-5 bg-sucess">
                     <div class="text-center">
                         <p class="title" style="color: black;">
                         <h2>Ditt spel är nu upplagt!</h2></p>
+                        <a href="/spel" class="btn btn-primary">Tillbaka till startsida</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+<div th:replace="fragments2 :: footer2"></div>
 
 </body>
 </html>

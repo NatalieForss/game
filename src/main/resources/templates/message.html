@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<body>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <head>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
         <title>Title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,19 +13,34 @@
         <link rel="stylesheet" href="style.css">
         <link rel="script" href="test.js">
         <link rel="shortcut icon" type="image/png" href="logo2.png" />
-    </head>
+</head>
+<body>
+<div th:replace="fragments2 :: header2"></div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
+    <form action="/meddelande" method="POST"></form>
     <div class="chat-popup" id="myForm">
         <form action="/action_page.php" class="form-container">
-            <h1>Chat</h1>
+            <br> <br> <br> <br>
 
-<!--            <label for="msg"><b>Message</b></label>-->
-            <textarea placeholder="Type message.." name="msg" required></textarea>
+            <textarea placeholder="Skriv ditt meddelande här.." name="msg" required></textarea>
 
-            <button type="submit" class="btn">Send</button>
-            <button type="button" class="btn cancel" onclick="closeForm()" href="/spel">Close</button>
+            <button type="button" class="btn">
+                <a style="color:#CEE2B3 " href="/skickat">Skicka</a></button>
+
+            <button type="button" class="btn cancel">   <a style="color:#CEE2B3 " href="/minasidor">Avbryt</a></button>
         </form>
+        <br>
+        <br>
     </div>
-</body>
+            </div></div></div>
+    <br>
+        <br>
+    </div>
+        </div></div></div>
+    </body>
 
 <!--    <div class="container">-->
 <!--        <div class="row justify-content-center">-->
@@ -57,9 +70,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</html>
-</head>
-<body>
+
+<div th:replace="fragments2 :: footer2"></div>
 
 </body>
 </html>
