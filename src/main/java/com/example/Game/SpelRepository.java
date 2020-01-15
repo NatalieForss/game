@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -22,17 +21,20 @@ public class SpelRepository {
     DataSource dataSource;
 
     //instance variables
-    private List<Spel> spelList;
+  //  private List<Spel> spelList;
 
     private Spel spel = null;
 
 
     public SpelRepository() {
-        spelList = new ArrayList<>();
+       // spelList = new ArrayList<>();
+        List <Spel>spelList = new ArrayList<>();
     }
 
     public List<Spel> getGamesByCategory(String category) {
-        spelList.clear();
+        //spelList.clear();
+       List <Spel>spelList = new ArrayList<>();
+
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM Game WHERE Category=" + category)){
@@ -53,7 +55,8 @@ public class SpelRepository {
     }
 
     public List<Spel> getGamesByGameName(String name) {
-        spelList.clear();
+        //spelList.clear();
+        List <Spel>spelList = new ArrayList<>();
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM Game WHERE GameName='" + name+"'")){
@@ -155,7 +158,8 @@ public class SpelRepository {
 
     // hämtar fråm DB
     public List<Spel> getGame(){
-        spelList.clear();
+       // spelList.clear();
+        List <Spel>spelList = new ArrayList<>();
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM Game")){
@@ -169,6 +173,32 @@ public class SpelRepository {
         }
         return spelList;
     }
+
+
+    public List<Spel> getPage(int page, int pageSize, String category, String id ) {
+       List<Spel> spelList = getGamesByCategory(category);
+        //List <Spel>spelList = new ArrayList<>();
+
+            int from = Math.max(0, page * pageSize);
+        int to = Math.min(spelList.size(), (page + 1) * pageSize);
+
+        return spelList.subList(from, to);
+
+    }
+
+    public int numberOfPages(int pageSize, String category, String id) {
+        List<Spel> spelList = getGamesByCategory(category);
+
+        return (int)Math.ceil(new Double(spelList.size()) / pageSize);
+    }
+
+
+
+
+
+
+
+
 
 //    public Spel getGameByGamename(String gamename){
 //
@@ -185,49 +215,6 @@ public class SpelRepository {
 //        return null;
 //    }
 //
-
-    //retunerar lista med spel sorterade på tillänlighet
-    public List<Spel> getSortedSpelList(int pageNr, int itemsPerPage, boolean onlyAvailable) {
-
-        List<Spel> subList = new ArrayList<Spel>();
-
-        //Collections.sort(spelList);
-
-        //antal spel som visas på hemsida är begränsad
-        for(int ii=0; ii< Math.min(itemsPerPage, spelList.size()); ii++){
-
-            Spel spel = spelList.get(pageNr+ii);
-
-
-            if(onlyAvailable){// om man krysar in härr så kommer att visas endast  tillgänliga spel
-                if(spel.isStatus()){
-                    subList.add(spel);
-                }
-            }
-            else {
-                subList.add(spel);
-            }
-        }
-        return subList;
-    }
-
-//    public Spel getGameByBarnspelCategory(String gameCategory){
-//
-//        try (Connection conn = dataSource.getConnection();
-//             Statement stmt = conn.createStatement();
-//             ResultSet rs = stmt.executeQuery("SELECT * FROM Game WHERE Category LIKE Barnspel")){
-//            if(rs.next()){
-//                return rsSpel(rs);
-//            }
-//        }
-//        catch(SQLException e){
-//            e.printStackTrace();
-//        }
-//
-//        return null;
-//    }
-
-
 
     @GetMapping("/dbtest")
         public boolean testDB () throws SQLException {

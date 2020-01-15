@@ -16,6 +16,8 @@ import java.util.List;
 @Controller
 public class SpelController {
 
+    private static final int PAGE_SIZE = 5;
+
     @Autowired
     SpelRepository spelRepository;
 
@@ -31,46 +33,92 @@ public class SpelController {
     }
 
     @GetMapping("/fragesport")
-    public String fragesport(Model model) {
-      List<Spel> result =  spelRepository.getGamesByCategory("'Frågesportsspel'");
-        model.addAttribute("fragesport", spelRepository.getGameOwner(result));
+    public String fragesport(Model model,@RequestParam(value="page", required=false, defaultValue="1") int page) {
+
+        //List<Spel> result =  spelRepository.getGamesByCategory("'Frågesportsspel'");
+        List<Spel> spels = spelRepository.getPage(page-1, PAGE_SIZE, "'Frågesportsspel'", "'");
+        int pageCount = spelRepository.numberOfPages(PAGE_SIZE, "'Frågesportsspel'", "'");
+
+
+        model.addAttribute("fragesport", spelRepository.getGameOwner(spels));
+        model.addAttribute("pages", page);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("showPrev", page > 1);
+        model.addAttribute("showNext", page < pageCount);
         return "fragesport";
     }
 
 
+
     @GetMapping("/musik")
-    public String musik(Model model) {
-       List <Spel> result = spelRepository.getGamesByCategory("'Musikspel'");
-       model.addAttribute("musik", spelRepository.getGameOwner(result));
+    public String musik(Model model,@RequestParam(value="page", required=false, defaultValue="1") int page) {
+        List<Spel> spels = spelRepository.getPage(page-1, PAGE_SIZE, "'Musikspel'", "'");
+        int pageCount = spelRepository.numberOfPages(PAGE_SIZE, "'Musikspel'", "'");
+
+        model.addAttribute("musik", spelRepository.getGameOwner(spels));
+        model.addAttribute("pages", page);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("showPrev", page > 1);
+        model.addAttribute("showNext", page < pageCount);
         return "musik";
     }
 
     @GetMapping("/pussel")
-    public String pussel(Model model) {
-        List <Spel> result =  spelRepository.getGamesByCategory("'Pussel'");
-        model.addAttribute("pussel", spelRepository.getGameOwner(result));
+    public String pussel(Model model,@RequestParam(value="page", required=false, defaultValue="1") int page) {
+        List<Spel> spels = spelRepository.getPage(page-1, PAGE_SIZE, "'Pussel'", "'");
+        int pageCount = spelRepository.numberOfPages(PAGE_SIZE, "'Pussel'", "'");
+
+        model.addAttribute("pussel", spelRepository.getGameOwner(spels));
+        model.addAttribute("pages", page);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("showPrev", page > 1);
+        model.addAttribute("showNext", page < pageCount);
         return "pussel";
     }
 
     @GetMapping("/strategispel")
-    public String strategispel(Model model) {
-        List <Spel> result = spelRepository.getGamesByCategory("'Strategispel'");
-        model.addAttribute("strategispel", spelRepository.getGameOwner(result));
+    public String strategispel(Model model,@RequestParam(value="page", required=false, defaultValue="1") int page) {
+       // List <Spel> result = spelRepository.getGamesByCategory("'Strategispel'");
+        List<Spel> spels = spelRepository.getPage(page-1, PAGE_SIZE, "'Strategispel'", "'");
+        int pageCount = spelRepository.numberOfPages(PAGE_SIZE, "'Strategispel'", "'");
+
+
+        model.addAttribute("strategispel", spelRepository.getGameOwner(spels));
+        model.addAttribute("pages", page);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("showPrev", page > 1);
+        model.addAttribute("showNext", page < pageCount);
         return "strategispel";
     }
 
 
     @GetMapping("/barnspel")
-    public String barnspel(Model model) {
-        List <Spel> result = spelRepository.getGamesByCategory("'Barnspel'");
-        model.addAttribute("barnspel", spelRepository.getGameOwner(result));
+    public String barnspel(Model model,@RequestParam(value="page", required=false, defaultValue="1") int page) {
+        //List <Spel> result = spelRepository.getGamesByCategory("'Barnspel'");
+        List<Spel> spels = spelRepository.getPage(page-1, PAGE_SIZE, "'Barnspel'", "'");
+        int pageCount = spelRepository.numberOfPages(PAGE_SIZE, "'Barnspel'", "'");
+
+        model.addAttribute("barnspel", spelRepository.getGameOwner(spels));
+        model.addAttribute("pages", page);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("showPrev", page > 1);
+        model.addAttribute("showNext", page < pageCount);
         return "barnspel";
     }
 
     @GetMapping("/familjespel")
-    public String familjespel(Model model) {
-       List <Spel> result =  spelRepository.getGamesByCategory("'Familjespel'");
-       model.addAttribute("familjespel", spelRepository.getGameOwner(result));
+    public String familjespel(Model model,@RequestParam(value="page", required=false, defaultValue="1") int page) {
+       //List <Spel> result =  spelRepository.getGamesByCategory("'Familjespel'");
+        List<Spel> spels = spelRepository.getPage(page-1, PAGE_SIZE, "'Familjespel'", "'");
+        int pageCount = spelRepository.numberOfPages(PAGE_SIZE, "'Familjespel'", "'");
+
+        model.addAttribute("familjespel", spelRepository.getGameOwner(spels));
+        model.addAttribute("pages", page);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("showPrev", page > 1);
+        model.addAttribute("showNext", page < pageCount);
+
+
         return "familjespel";
     }
 
@@ -81,9 +129,7 @@ public class SpelController {
         UserInfo user = (UserInfo) session.getAttribute("user");
         if (user != null && user.getLoggedIn()) {
             return "addSpel";
-//        if (session.getAttribute("userName") != null) {
-//
-//            return "login";
+
         }
         return "login2";
     }
@@ -129,24 +175,10 @@ public class SpelController {
 
         int pageNr = Integer.parseInt(page);
 
-        List<Spel> selectedSpel = metods.getSortedSpelList(pageNr, 20, false);
-
-
-        model.addAttribute("spel", selectedSpel);
 
         return "startpage";
     }
 
-    @PostMapping("/filter_spel")
-    String filterSpel(Model model, @RequestParam(required = false, defaultValue = "false") String available) {
-        boolean onlyAvailable = Boolean.parseBoolean(available);
-
-        List<Spel> selectedSpel = metods.getSortedSpelList(0, 20, onlyAvailable);
-
-        model.addAttribute("spel", selectedSpel);
-
-        return "startpage";
-    }
 
     @GetMapping("/omoss")
     public String about(){
@@ -164,10 +196,15 @@ public class SpelController {
     public String searchForGames(@RequestParam String search, Model model) {
         List<Spel> result = spelRepository.getGamesByGameName(search);
         if (result.isEmpty()) {
-            return "nohit"; //TODO
+            return "ingatraffar"; //TODO
         }
         model.addAttribute("searchResult", spelRepository.getGameOwner(result));
         return "searchResult";
+    }
+
+    @GetMapping("/ingatraffar")
+    public String ingatraffar() {
+        return "startpage";
     }
 
 
