@@ -77,7 +77,7 @@ public class SpelRepository {
     }
 
     public List<Spel> getAllGames(int id) {
-        spelList.clear();
+        List <Spel>spelList = new ArrayList<>();
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM Game WHERE UserId =" + id)) {
@@ -87,6 +87,7 @@ public class SpelRepository {
                 spel.setLocation(rs.getString("Location"));
                 spel.setTypeOfExchange(rs.getString("TypeOfExchange"));
                 spel.setUserID(rs.getString("UserId"));
+                spel.setId(rs.getInt("GameId"));
 
                 spelList.add(spel);
             }
@@ -110,6 +111,7 @@ public class SpelRepository {
                     SearchResult result = new SearchResult();
                     result.setGameName(s.getName());
                     result.setLocation(s.getLocation());
+                    result.setGameId(s.getId());
                     result.setTypeOfExchange(s.getTypeOfExchange());
                     result.setUserInfo(user);
                     searchResults.add(result);
@@ -193,28 +195,17 @@ public class SpelRepository {
     }
 
 
+    public void deleteGameByGameId(int gameId){
 
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement()){
+             stmt.executeUpdate("DELETE FROM Game WHERE GameId='" + gameId + "'");
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
 
-
-
-
-
-
-//    public Spel getGameByGamename(String gamename){
-//
-//        try (Connection conn = dataSource.getConnection();
-//             Statement stmt = conn.createStatement();
-//             ResultSet rs = stmt.executeQuery("SELECT * FROM Game WHERE GameName='" + gamename + "'")){
-//            if(rs.next()){
-//                return rsSpel(rs);
-//            }
-//        }
-//        catch(SQLException e){
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
-//
 
     @GetMapping("/dbtest")
         public boolean testDB () throws SQLException {
@@ -229,5 +220,4 @@ public class SpelRepository {
             }
             return two == 2;
         }
-
     }
