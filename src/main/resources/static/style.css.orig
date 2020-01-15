@@ -164,9 +164,11 @@ body {
     text-align: center;
 }
 
-.container {
-    text-align: center;
-}
+<<<<<<< HEAD
 .pagination2 {
     margin-bottom:50px;
+=======
+.container {
+    text-align: center;
+>>>>>>> 135d08a62b552b424972bdbb29eae03e363a329c
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Galada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="logo2.png"/>
+</head>
+<body>
+<div th:replace="fragments2 :: header2"></div>
+
+<form action="/confirmation" method="POST"></form>
+
+<div class="form" style="color: black;">
+    <div class="d-flex justify-content-center align-items-center container">
+        <div class="form-group row">
+            <div class="p-5 bg-sucess">
+                <div class="text-center">
+                    <p class="title" style="color: black;">
+                    <h2>Spelet du söker finns inte.</h2></p>
+                    <a href="/spel" class="btn btn-primary">Tillbaka till startsida</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments2 :: footer2"></div>
+
+</body>
+</html>

@@ -195,10 +195,15 @@ public class SpelController {
     public String searchForGames(@RequestParam String search, Model model) {
         List<Spel> result = spelRepository.getGamesByGameName(search);
         if (result.isEmpty()) {
-            return "nohit"; //TODO
+            return "ingatraffar"; //TODO
         }
         model.addAttribute("searchResult", spelRepository.getGameOwner(result));
         return "searchResult";
+    }
+
+    @GetMapping("/ingatraffar")
+    public String ingatraffar() {
+        return "startpage";
     }
 
 
