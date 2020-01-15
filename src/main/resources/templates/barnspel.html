@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Galada&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli|Roboto+Slab:800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" type="image/png" href="logo2.png"/>
 </head>
@@ -17,7 +17,7 @@
 
 <form action="/barnspel" method="POST"></form>
 
-
+<div class="kategoriertext">
             <div class="container">
                 <div class="row justify-content-center">
                     <div th:each="barn: ${barnspel}" class="col-md-3">
@@ -29,7 +29,7 @@
     <td th:text="${barn.Location}"></td><br>
     <h5>Typ av byte:</h5>
     <td th:text=" ${barn.TypeOfExchange}"></td>
-    <br>     <h5>Användarens uppgifter:</h5>
+    <br>     <h5>Användarens uppgifter</h5>
     <h5>Mail:</h5>
     <a href=mailto: subject="HTML link"> <td th:text="${barn.UserInfo.Mail}"></td></a><br>
     <!--    <td th:text="${frage.UserInfo.Mail}"></td><br>-->
@@ -39,7 +39,7 @@
     <br><br>
 </tr>
 
-                            </div></div></div></div></div>
+                            </div></div></div></div></div></div>
 
 <div th:replace="fragments2 :: footer2"></div>
 
