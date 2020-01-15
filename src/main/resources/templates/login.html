@@ -19,11 +19,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-6">
-        <div class="form" style="color: black;">
             <div class="mt-3">
-            <div class="p-5 bg-sucess">
-
-                    <p class="title" style="color: black;"></p>
+                <div class="p-5 bg-sucess">
+                    <div class="text-center">
+                        <p class="title" style="color: black;"></p>
                         <h2>Logga in här</h2>
                         <form action="/login" th:object="${user}" method="POST">
                             <label for name="username" class="col-md-auto col-form-label"><h4>Användarnamn</h4></label>
@@ -40,7 +39,8 @@
                             <p><h5 style="color: black">Inte medlem? Registrera dig <a href="/signup" class="link"
                                                                                        style="color: #f25e5e">här</a>
                         </h5></p></form>
-            </div></div></div></div></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
