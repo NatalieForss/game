@@ -4,10 +4,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 public class SearchResult {
+    private int gameId;
     private String gameName;
     private String typeOfExchange;
     private String location;
     private UserInfo userInfo;
+
+    public int getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
+    }
 
     public String getGameName() {
         return gameName;
