@@ -12,18 +12,18 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" type="image/png" href="logo2.png"/>
 </head>
-<body>
+
 <div th:replace="fragments2 :: header2"></div>
 
 <form action="/fragesport" method="POST"></form>
 
-
-
-</tr>
-
-<tr th:each="frage: ${fragesport}">
-    <h5>Namn:</h5>
-    <td th:text="${frage.GameName}"></td>
+<div class="container">
+    <div class="row justify-content-center">
+        <div th:each="frage: ${fragesport}" class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body" >
+                    <h5 class="card-title">Spelnamn:</h5>
+                    <span class="card-text" th:text="${frage.GameName}"></span>
     <h5>Plats:</h5>
     <td th:text="${frage.Location}"></td><br>
     <h5>Typ av byte:</h5>
@@ -36,6 +36,7 @@
     <td th:text="${frage.UserInfo.userName}"></td>
     <br>
     <br><br>
+                </div></div></div></div></div>
 </tr>
 
 <div th:replace="fragments2 :: footer2"></div>

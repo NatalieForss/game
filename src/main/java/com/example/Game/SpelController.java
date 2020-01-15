@@ -39,32 +39,37 @@ public class SpelController {
 
     @GetMapping("/musik")
     public String musik(Model model) {
-        model.addAttribute("musikspel", spelRepository.getGamesByCategory("'Musikspel'"));
+       List <Spel> result = spelRepository.getGamesByCategory("'Musikspel'");
+       model.addAttribute("musik", spelRepository.getGameOwner(result));
         return "musik";
     }
 
     @GetMapping("/pussel")
     public String pussel(Model model) {
-        model.addAttribute("pussel", spelRepository.getGamesByCategory("'Pussel'"));
+        List <Spel> result =  spelRepository.getGamesByCategory("'Pussel'");
+        model.addAttribute("pussel", spelRepository.getGameOwner(result));
         return "pussel";
     }
 
     @GetMapping("/strategispel")
     public String strategispel(Model model) {
-        model.addAttribute("strategispel", spelRepository.getGamesByCategory("'Strategispel'"));
+        List <Spel> result = spelRepository.getGamesByCategory("'Strategispel'");
+        model.addAttribute("strategispel", spelRepository.getGameOwner(result));
         return "strategispel";
     }
 
 
     @GetMapping("/barnspel")
     public String barnspel(Model model) {
-        model.addAttribute("barnspel", spelRepository.getGamesByCategory("'Barnspel'"));
+        List <Spel> result = spelRepository.getGamesByCategory("'Barnspel'");
+        model.addAttribute("barnspel", spelRepository.getGameOwner(result));
         return "barnspel";
     }
 
     @GetMapping("/familjespel")
     public String familjespel(Model model) {
-        model.addAttribute("familjespel", spelRepository.getGamesByCategory("'Familjespel'"));
+       List <Spel> result =  spelRepository.getGamesByCategory("'Familjespel'");
+       model.addAttribute("familjespel", spelRepository.getGameOwner(result));
         return "familjespel";
     }
 

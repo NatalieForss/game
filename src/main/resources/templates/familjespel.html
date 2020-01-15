@@ -17,15 +17,27 @@
 
 <form action="/familjespel" method="POST"></form>
 
-<tr th:each="familj: ${familjespel}">
-    <h5>Namn:</h5>
-    <td th:text="${familj.Location}"></td>
+<div class="container">
+    <div class="row justify-content-center">
+    <div th:each="familj: ${familjespel}" class="col-md-3">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body" >
+                <h5 class="card-title">Spelnamn:</h5>
+                <span class="card-text" th:text="${familj.GameName}"></span>
     <h5>Plats:</h5>
-    <td th:text="${familj.Name}"></td><br>
+    <td th:text="${familj.Location}"></td><br>
     <h5>Typ av byte:</h5>
     <td th:text="${familj.TypeOfExchange}"></td>
+    <br>
+    <h5>Användarens uppgifter</h5>
+    <h5>Mail:</h5>
+    <a href=mailto: subject="HTML link"> <td th:text="${familj.UserInfo.Mail}"></td></a><br>
+    <!--    <td th:text="${frage.UserInfo.Mail}"></td><br>-->
+    <h5>Användarnamn</h5>
+    <td th:text="${familj.UserInfo.userName}"></td>
+    <br>
     <br><br>
-</tr>
+            </div></div></div></div></div></div>
 
 <div th:replace="fragments2 :: footer2"></div>
 </body>
