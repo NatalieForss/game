@@ -54,7 +54,7 @@ a {
 }
 
 body {
-    background-color: #f5fffa;
+    background-color: #fcfbf4;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -110,11 +110,11 @@ body {
 
 
 .navbar-fixed-bottom {
-    background-color: #ADC3D1;
+    background-color: #7299c3;
 }
 
 .navbar-fixed-top {
-    background-color: #ADC3D1;
+    background-color: #7299c3;
 }
 
 .centrerad {
