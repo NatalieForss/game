@@ -11,8 +11,8 @@ h3 {
 }
 
 h5 {
-font-family: 'Roboto Slab', serif;
- font-size: 14px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 14px;
     font-weight: normal;
     color: black;
     text-align: left;
@@ -23,9 +23,9 @@ h6 {
 }
 
 .kategoriertext {
-font-family: 'Roboto Slab', serif;
-font-family: 'Muli', sans-serif;
- font-size: 16px;
+    font-family: 'Roboto Slab', serif;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
     font-weight: normal;
     color: black;
     text-align: left;
@@ -193,3 +193,25 @@ body {
 .pagination2 {
     margin-bottom:50px;
 }
+
+/* Footer */
+
+.foot {
+    margin-top: 15px;
+}
+
+.omoss {
+    float: left;
+    margin-left: 15px;
+}
+
+.email {
+    float: right;
+    margin-right: 15px;
+}
+
+
+
+
+
+
