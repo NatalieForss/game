@@ -41,25 +41,27 @@
                 </div></div></div></div></div>
 </tr>
 
-<div th:replace="fragments2 :: footer2"></div>
+    <div th:replace="fragments2 :: footer2"></div>
 
-<div class="pagination2">
+    <div class="container">
+        <div class="text-center">
+            <div class="pagination2">
         <span th:if="${showPrev}">
             <a th:href="'/fragesport?page=' + ${currentPage-1}">Previous</a>
         </span>
 
-    <span th:each="page : ${pages}">
+                <span th:each="page : ${pages}">
             <span th:if="${currentPage == page}" th:text="${page}"></span>
             <a th:if="${currentPage != page}" th:href="'/fragesport?page=' + ${page}" th:text="${page}"></a>
         </span>
 
-    <span th:if="${showNext}">
+                <span th:if="${showNext}">
             <a th:href="'/fragesport?page=' + ${currentPage+1}">Next</a>
         </span>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-
 
 </body>
 </html>
