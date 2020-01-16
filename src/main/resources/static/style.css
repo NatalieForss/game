@@ -37,6 +37,13 @@ p {
     text-align: center;
 }
 
+#omoss {
+    text-align: left;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 10px;
+}
+
 /*Categories*/
 a {
     color: #524f52;
