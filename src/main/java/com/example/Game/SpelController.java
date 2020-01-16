@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 public class SpelController {
 
-    private static final int PAGE_SIZE = 5;
+    private static final int PAGE_SIZE = 8;
 
     @Autowired
     SpelRepository spelRepository;
