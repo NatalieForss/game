@@ -18,49 +18,54 @@
 <form action="/pussel" method="POST"></form>
 
 <div class="kategoriertext">
-<div class="container">
-    <div class="row justify-content-center">
-        <div th:each="pussel: ${pussel}" class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Spelnamn:</h5>
-                    <span class="card-text" th:text="${pussel.GameName}"></span>
-                    <h5>Plats:</h5>
-                    <td th:text=" ${pussel.Location}"></td>
-                    <h5>Typ av byte:</h5>
-                    <td th:text=" ${pussel.TypeOfExchange}"></td>
-                    <br>
-                    <h5>Användarens uppgifter</h5>
-                    <h5>Mail:</h5>
-                    <a href=mailto: subject="HTML link">
-                        <td th:text="${pussel.UserInfo.Mail}"></td>
-                    </a><br>
-                    <!--    <td th:text="${frage.UserInfo.Mail}"></td><br>-->
-                    <h5>Användarnamn</h5>
-                    <td th:text="${pussel.UserInfo.userName}"></td>
-                    <br>
-                    <br><br>
-<!--                    <a href="/meddelande" class="btn btn-primary">Skicka meddelande</a>-->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div th:each="pussel: ${pussel}" class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Spelnamn:</h5>
+                        <span class="card-text" th:text="${pussel.GameName}"></span>
+                        <h5>Plats:</h5>
+                        <td th:text=" ${pussel.Location}"></td>
+                        <h5>Typ av byte:</h5>
+                        <td th:text=" ${pussel.TypeOfExchange}"></td>
+                        <br>
+                        <h5>Användarens uppgifter</h5>
+                        <h5>Mail:</h5>
+                        <a href=mailto: subject="HTML link">
+                            <td th:text="${pussel.UserInfo.Mail}"></td>
+                        </a><br>
+                        <!--    <td th:text="${frage.UserInfo.Mail}"></td><br>-->
+                        <h5>Användarnamn</h5>
+                        <td th:text="${pussel.UserInfo.userName}"></td>
+                        <br>
+                        <br><br>
+                        <!--                    <a href="/meddelande" class="btn btn-primary">Skicka meddelande</a>-->
+                    </div>
                 </div>
             </div>
         </div>
-    </div></div>
+    </div>
 
     <div th:replace="fragments2 :: footer2"></div>
 
-    <div class="pagination2">
+    <div class="container">
+        <div class="text-center">
+            <div class="pagination2">
         <span th:if="${showPrev}">
             <a th:href="'/pussel?page=' + ${currentPage-1}">Previous</a>
         </span>
 
-        <span th:each="page : ${pages}">
+                <span th:each="page : ${pages}">
             <span th:if="${currentPage == page}" th:text="${page}"></span>
             <a th:if="${currentPage != page}" th:href="'/pussel?page=' + ${page}" th:text="${page}"></a>
         </span>
 
-        <span th:if="${showNext}">
+                <span th:if="${showNext}">
             <a th:href="'/pussel?page=' + ${currentPage+1}">Next</a>
         </span>
+            </div>
+        </div>
     </div>
 </div>
 
