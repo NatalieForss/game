@@ -28,6 +28,31 @@
                             <div class="card-body">
                                 <h5 class="card-title">Spelnamn:</h5>
                                 <span class="card-text" th:text="${barn.GameName}"></span>
+<<<<<<< HEAD
+                                <h5>Plats:</h5>
+                                <td th:text="${barn.Location}"></td>
+                                <br>
+                                <h5>Typ av byte:</h5>
+                                <td th:text=" ${barn.TypeOfExchange}"></td>
+                                <br>     <h5>Användarens uppgifter</h5>
+                                <h5>Mail:</h5>
+                                <a href=mailto: subject="HTML link">
+                                    <td th:text="${barn.UserInfo.Mail}"></td>
+                                </a><br>
+                                <h5>Användarnamn</h5>
+                                <td th:text="${barn.UserInfo.userName}"></td>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+=======
     <h5>Plats:</h5>
     <td th:text="${barn.Location}"></td><br>
     <h5>Typ av byte:</h5>
@@ -39,10 +64,16 @@
     <h5>Användarnamn</h5>
     <td th:text="${barn.UserInfo.userName}"></td>
     <br>
-    <br><br>
-</tr>
+                                <br><br>
+                                </tr>
 
-                            </div></div></div></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+>>>>>>> 18c6935e876ae3b581dedfecf9314e32758cb673
+</div>
 
 <div th:replace="fragments2 :: footer2"></div>
 

@@ -11,8 +11,8 @@ h3 {
 }
 
 h5 {
-font-family: 'Roboto Slab', serif;
- font-size: 14px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 14px;
     font-weight: normal;
     color: black;
 
@@ -23,9 +23,9 @@ h6 {
 }
 /*
 .kategoriertext {
-font-family: 'Roboto Slab', serif;
-font-family: 'Muli', sans-serif;
- font-size: 16px;
+    font-family: 'Roboto Slab', serif;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
     font-weight: normal;
     color: black;
  text-align: left;
@@ -38,6 +38,13 @@ font-family: 'Muli', sans-serif;
 p {
     color: black;
     text-align: center;
+}
+
+#omoss {
+    text-align: left;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 10px;
 }
 
 /*Categories*/
@@ -116,10 +123,49 @@ body {
 
 .container {
     text-align: center;
-}
-.editing {
-    text-align: left;
+
 }
 .pagination2 {
-    margin-bottom:50px;
+   margin-bottom:80px;
+   display: inline-block;
+   text-align: center;
+
+
+}
+
+.pagination2 {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+
+
+}
+.pagination2.active{
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+
+
+.pagination2 :hover:not(.active) {
+background-color: #ddd;}
+
+/* Footer */
+
+.foot {
+    margin-top: 15px;
+}
+
+.omoss {
+    float: left;
+    margin-left: 15px;
+}
+
+.email {
+    float: right;
+    margin-right: 15px;
 }

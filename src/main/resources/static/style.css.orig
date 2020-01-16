@@ -11,29 +11,28 @@ h3 {
 }
 
 h5 {
-<<<<<<< HEAD
-font-family: 'Roboto Slab', serif;
- font-size: 16px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 14px;
     font-weight: normal;
     color: black;
 
-}
 
-.kategoriertext {
-font-family: 'Roboto Slab', serif;
-font-family: 'Muli', sans-serif;
- font-size: 14px;
-    font-weight: normal;
-=======
-    font-family: 'Galada';
-    /*font-weight: bold;*/
-    color: #524f52;
 }
-
 h6 {
->>>>>>> b60ad18e54a25a025318159b8aa4a740aa1171c3
     color: black;
 }
+/*
+.kategoriertext {
+    font-family: 'Roboto Slab', serif;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+ text-align: left;
+}
+
+ kategoritext */
+
 
 /*Copyright*/
 p {
@@ -41,13 +40,21 @@ p {
     text-align: center;
 }
 
+#omoss {
+    text-align: left;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 10px;
+}
+
 /*Categories*/
 a {
     color: #524f52;
+    text-align: left;
 }
 
 body {
-    background-color: #EEECF1;
+    background-color: #f5fffa;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -61,7 +68,7 @@ body {
 
 
 /* Three image containers (use 25% for four, and 50% for two, etc) */
-.column {
+.start {
     float: left;
     width: 33.3%;
     padding: 10px;
@@ -76,10 +83,14 @@ body {
 
 
 /* Clear floats after image containers */
-.row {
+.fixing-start {
     display: table;
     margin-top: 50px;
     padding: 5px;
+}
+
+.row {
+    margin-top: 50px;
 }
 
 .img-thumbnail {
@@ -96,77 +107,7 @@ body {
 
 {box-sizing: border-box;}
 
-//Chatfunktion
 
-/* Button used to open the chat form - fixed at the bottom of the page */
-.open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-}
-
-/* The popup chat - hidden by default */
-.form-popup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-}
-
-/* Add styles to the form container */
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-}
-
-/* Full-width textarea */
-.form-container textarea {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-  resize: none;
-  min-height: 200px;
-}
-
-/* When the textarea gets focus, do something */
-.form-container textarea:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Set a style for the submit/login button */
-.form-container .btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
 
 .navbar-fixed-bottom {
     background-color: #ADC3D1;
@@ -182,7 +123,56 @@ body {
 
 .container {
     text-align: center;
+
 }
+<<<<<<< HEAD
+.editing {
+    text-align: left;
+}
+=======
+
+>>>>>>> 18c6935e876ae3b581dedfecf9314e32758cb673
 .pagination2 {
-    margin-bottom:50px;
+   margin-bottom:80px;
+   display: inline-block;
+   text-align: center;
+
+
+}
+
+.pagination2 {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+
+
+}
+.pagination2.active{
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+
+
+.pagination2 :hover:not(.active) {
+background-color: #ddd;}
+
+/* Footer */
+
+.foot {
+    margin-top: 15px;
+}
+
+.omoss {
+    float: left;
+    margin-left: 15px;
+}
+
+.email {
+    float: right;
+    margin-right: 15px;
 }
