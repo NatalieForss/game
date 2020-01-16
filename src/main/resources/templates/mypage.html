@@ -16,27 +16,25 @@
 <div>
 
     <form action="/minasidor1" th:object="${user}" method="POST"></form>
-    <br><br>  <h2>Mina upplagda spel</h2></p></div>
+
     <div class="kategoriertext">
         <div class="container">
+          <br>  <br><br>  <h2>Mina upplagda spel</h2>
             <div class="row justify-content-center">
                 <p class="title" style="color:black;">
-
                 <div th:each="user: ${user}" class="col-md-3">
                     <div class="card bg-info" style="width: 20rem; background-color: #ecf7fc;">
                         <img class="card-img-top" src="kategoribild.jpg" alt="Card image" style="width:200px">
-                        <div class="card-body-text-center"> <div class="card" style="width: 35rem;">
-                        <div class="card-body">
                             <h5 class="card-title">Spelnamn:</h5>
                             <span class="card-text" th:text="${user.GameName}"></span><br>
                             <h5>Plats:</h5>
                             <td th:text="${user.Location}"></td>
                             <br>
-                            <h5>Användarnamn</h5>
+                            <h5>Användarnamn:</h5>
                             <td th:text="${user.UserInfo.UserName}"></td><br><br>
                             <div class="col-sm-center">
                                 <a th:href="${'/delete/' + user.gameId}" input type="submit" class="btn btn-primary"
-                                   value="Ta bort spel" style="background-color: #f25e5e">Ta bort spel</a>
+                                   value="Ta bort spel" style="background-color: #f25e5e">Ta bort spel</a><br>
                             </div>
 
                         </div>

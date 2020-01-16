@@ -20,10 +20,9 @@
 <div class="kategoriertext">
 <div class="container">
     <div class="row justify-content-center">
-
         <div th:each="musik: ${musik}" class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body" >
+                <div class="card bg-info" style="width: 20rem; background-color: #ecf7fc;">
+                    <img class="card-img-top" src="kategoribild.jpg" alt="Card image" style="width:200px">
                     <h5 class="card-title">Spelnamn:</h5>
                     <span class="card-text" th:text="${musik.GameName}"></span>
     <h5>Plats:</h5>
@@ -36,7 +35,7 @@
     <a href=mailto: subject="HTML link"> <td th:text="${musik.UserInfo.Mail}"></td></a><br>
     <!--    <td th:text="${frage.UserInfo.Mail}"></td><br>-->
     <h5>Användarnamn</h5>
-    <td th:text="${musik.UserInfo.userName}"></td>
+                    <td th:text="${musik.UserInfo.userName}"></td></div></div>
     <br>
     <br><br>
                 </div></div></div></div></div>
