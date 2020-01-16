@@ -15,7 +15,7 @@
 <body>
 
 <form action="/searchResult" method="POST"></form>
-
+<br><br>
 <nav class="navbar navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -43,8 +43,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div th:each="search: ${searchResult}" class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body" >
+            <div class="card bg-info" style="width: 20rem; background-color: #ecf7fc;">
+                <img class="card-img-top" src="kategoribild.jpg" alt="Card image" style="width:200px">
+                <div class="card-body-text-center"> <div class="card" style="width: 35rem;">
+                    <div class="card-body">
                     <h5 class="card-title">Spelnamn:</h5>
                     <span class="card-text" th:text="${search.GameName}"></span><br>
     <h5>Plats:</h5>
@@ -53,13 +55,13 @@
     <td th:text="${search.TypeOfExchange}"></td><br>
     <h5>Användarens uppgifter</h5>
                     <h5>Mail:</h5>
-    <td th:text="${search.UserInfo.Mail}"></td><br>
+                        <a href=mailto: subject="HTML link"> <td th:text="${search.UserInfo.Mail}"></td></a><br>
                     <h5>Användarnamn:</h5>
-    <td th:text="${search.UserInfo.UserName}"></td>
-    <br><br><br>
+                        <td th:text="${search.UserInfo.UserName}"></td></div></div>
+    <br><br>
 </tr>
 </div>
-            </div>    </div></div></div></div></div>
+            </div></div></div></div></div></div>
 
 </body>
 </html>

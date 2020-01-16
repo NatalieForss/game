@@ -16,13 +16,14 @@
 <div th:replace="fragments2 :: header2"></div>
 
 <form action="/strategispel" method="POST"></form>
-
+<br><br>
 <div class="kategoriertext">
 <div class="container">
     <div class="row justify-content-center">
         <div th:each="strategi: ${strategispel}" class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body" >
+            <div class="card bg-info" style="width: 20rem; background-color: #ecf7fc;">
+            <img class="card-img-top" src="kategoribild.jpg" alt="Card image" style="width:200px">
+            <div class="card-body-text-center">
                     <h5 class="card-title">Spelnamn:</h5>
                     <span class="card-text" th:text="${strategi.GameName}"></span>
     <h5>Plats:</h5>
@@ -34,7 +35,10 @@
                     <h5>Mail:</h5>
                     <td th:text="${strategi.UserInfo.Mail}"></td><br>
                     <h5>Användarnamn:</h5>
-                    <td th:text="${strategi.UserInfo.UserName}"></td><br><br><br>
+                <td th:text="${strategi.UserInfo.UserName}"><</td></td>
+            </div></div>
+
+                <br><br>
 </tr>
                 </div></div></div></div></div>
 <div th:replace="fragments2 :: footer2"></div>
