@@ -47,7 +47,7 @@
         <div class="text-center">
             <div class="pagination2">
         <span th:if="${showPrev}">
-            <a th:href="'/fragesport?page=' + ${currentPage-1}">Previous</a>
+            <a th:href="'/fragesport?page=' + ${currentPage-1}">Bakåt</a>
         </span>
 
                 <span th:each="page : ${pages}">
@@ -56,7 +56,7 @@
         </span>
 
                 <span th:if="${showNext}">
-            <a th:href="'/fragesport?page=' + ${currentPage+1}">Next</a>
+            <a th:href="'/fragesport?page=' + ${currentPage+1}">Nästa</a>
         </span>
             </div>
         </div>
