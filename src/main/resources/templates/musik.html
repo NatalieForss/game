@@ -24,23 +24,30 @@
                 <div class="card bg-info" style="width: 20rem; background-color: #ecf7fc;">
                     <img class="card-img-top" src="kategoribild.jpg" alt="Card image" style="width:200px">
                     <div class="card-body-text-center">
-                    <h5 class="card-title">Spelnamn:</h5>
-                    <span class="card-text" th:text="${musik.GameName}"></span>
-    <h5>Plats:</h5>
-    <td th:text=" ${musik.Location}"></td><br>
-    <h5>Typ av byte:</h5>
-    <td th:text=" ${musik.TypeOfExchange}"></td>
-    <br>
-    <h5>Användarens uppgifter</h5>
-    <h5>Mail:</h5>
-    <a href=mailto: subject="HTML link"> <td th:text="${musik.UserInfo.Mail}"></td></a><br>
-    <!--    <td th:text="${frage.UserInfo.Mail}"></td><br>-->
-    <h5>Användarnamn:</h5>
-    <td th:text="${musik.UserInfo.userName}"></td>
-    <br>
-    <br><br>
-                </div></div></div></div></div>
-</tr>
+                        <h5 class="card-title">Spelnamn:</h5>
+                        <span class="card-text" th:text="${musik.GameName}"></span>
+                        <h5>Plats:</h5>
+                        <td th:text=" ${musik.Location}"></td>
+                        <br>
+                        <h5>Typ av byte:</h5>
+                        <td th:text=" ${musik.TypeOfExchange}"></td>
+                        <br>
+                        <h5>Användarens uppgifter</h5>
+                        <h5>Mail:</h5>
+                        <a href=mailto: subject="HTML link">
+                            <td th:text="${musik.UserInfo.Mail}"></td>
+                        </a><br>
+                        <h5>Användarnamn:</h5>
+                        <td th:text="${musik.UserInfo.userName}"></td>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div th:replace="fragments2 :: footer2"></div>
 
