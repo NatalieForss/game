@@ -18,15 +18,15 @@
 <form action="/musik" method="POST"></form>
 <br><br>
 <div class="kategoriertext">
-<<<<<<< HEAD
-<div class="container">
-    <div class="row justify-content-center">
-        <div th:each="musik: ${musik}" class="col-md-3">
-            <div class="card bg-info" style="width: 20rem; background-color: #ecf7fc;">
-                <img class="card-img-top" src="kategoribild.jpg" alt="Card image" style="width:200px">
-                <div class="card-body-text-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div th:each="musik: ${musik}" class="col-md-3">
+                <div class="card bg-info" style="width: 20rem; background-color: #ecf7fc;">
+                    <img class="card-img-top" src="kategoribild.jpg" alt="Card image" style="width:200px">
+                    <div class="card-body-text-center">
                     <h5 class="card-title">Spelnamn:</h5>
                     <span class="card-text" th:text="${musik.GameName}"></span>
+<<<<<<< HEAD
     <h5>Plats:</h5>
     <td th:text=" ${musik.Location}"></td><br>
     <h5>Typ av byte:</h5>
@@ -36,69 +36,58 @@
     <h5>Mail:</h5>
     <a href=mailto: subject="HTML link"> <td th:text="${musik.UserInfo.Mail}"></td></a><br>
     <!--    <td th:text="${frage.UserInfo.Mail}"></td><br>-->
-    <h5>Användarnamn</h5>
-                    <td th:text="${musik.UserInfo.userName}"></td> </div></div>
+    <h5>Användarnamn:</h5>
+    <td th:text="${musik.UserInfo.userName}"></td>
     <br>
-    <br>
+    <br><br>
                 </div></div></div></div></div>
 </tr>
+=======
+                    <h5>Plats:</h5>
+                    <td th:text=" ${musik.Location}"></td>
+                    <br>
+                    <h5>Typ av byte:</h5>
+                    <td th:text=" ${musik.TypeOfExchange}"></td>
+                    <br>
+                    <h5>Användarens uppgifter</h5>
+                    <h5>Mail:</h5>
+                    <a href=mailto: subject="HTML link">
+                        <td th:text="${musik.UserInfo.Mail}"></td>
+                    </a><br>
+                    <!--    <td th:text="${frage.UserInfo.Mail}"></td><br>-->
+                    <h5>Användarnamn:</h5>
+                    <td th:text="${musik.UserInfo.userName}"></td>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div></div>
+    </div>
+</div>
+</div></div>
+>>>>>>> c9426311bf9fc56642a776d509428af14184caf3
+
 
 <div th:replace="fragments2 :: footer2"></div>
 
-<div class="pagination2">
-=======
-    <div class="container">
-        <div class="row justify-content-center">
-
-            <div th:each="musik: ${musik}" class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Spelnamn:</h5>
-                        <span class="card-text" th:text="${musik.GameName}"></span>
-                        <h5>Plats:</h5>
-                        <td th:text=" ${musik.Location}"></td>
-                        <br>
-                        <h5>Typ av byte:</h5>
-                        <td th:text=" ${musik.TypeOfExchange}"></td>
-                        <br>
-                        <h5>Användarens uppgifter</h5>
-                        <h5>Mail:</h5>
-                        <a href=mailto: subject="HTML link">
-                            <td th:text="${musik.UserInfo.Mail}"></td>
-                        </a><br>
-                        <!--    <td th:text="${frage.UserInfo.Mail}"></td><br>-->
-                        <h5>Användarnamn</h5>
-                        <td th:text="${musik.UserInfo.userName}"></td>
-                        <br>
-                        <br><br>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </tr>
-
-    <div th:replace="fragments2 :: footer2"></div>
-
-    <div class="container">
-        <div class="text-center">
-            <div class="pagination2">
->>>>>>> 18c6935e876ae3b581dedfecf9314e32758cb673
+<div class="container">
+    <div class="text-center">
+        <div class="pagination2">
         <span th:if="${showPrev}">
-            <a th:href="'/musik?page=' + ${currentPage-1}">Previous</a>
+            <a th:href="'/musik?page=' + ${currentPage-1}">Bakåt</a>
         </span>
 
-                <span th:each="page : ${pages}">
+            <span th:each="page : ${pages}">
             <span th:if="${currentPage == page}" th:text="${page}"></span>
             <a th:if="${currentPage != page}" th:href="'/musik?page=' + ${page}" th:text="${page}"></a>
         </span>
 
-                <span th:if="${showNext}">
-            <a th:href="'/musik?page=' + ${currentPage+1}">Next</a>
+            <span th:if="${showNext}">
+            <a th:href="'/musik?page=' + ${currentPage+1}">Nästa</a>
         </span>
-            </div>
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>

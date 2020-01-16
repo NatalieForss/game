@@ -61,19 +61,38 @@
     <h5>Mail:</h5>
     <a href=mailto: subject="HTML link"> <td th:text="${barn.UserInfo.Mail}"></td></a><br>
     <!--    <td th:text="${frage.UserInfo.Mail}"></td><br>-->
-    <h5>Användarnamn</h5>
+    <h5>Användarnamn:</h5>
     <td th:text="${barn.UserInfo.userName}"></td>
     <br>
-                                <br><br>
-                                </tr>
+    <br><br>
+</tr>
+=======
+>>>>>>> c9426311bf9fc56642a776d509428af14184caf3
 
-                            </div>
-                        </div>
-                    </div>
+                    <h5 class="card-title">Spelnamn:</h5>
+                    <span class="card-text" th:text="${barn.GameName}"></span>
+                    <h5>Plats:</h5>
+                    <td th:text="${barn.Location}"></td>
+                    <br>
+                    <h5>Typ av byte:</h5>
+                    <td th:text=" ${barn.TypeOfExchange}"></td>
+                    <br>     <h5>Användarens uppgifter</h5>
+                    <h5>Mail:</h5>
+                    <a href=mailto: subject="HTML link">
+                        <td th:text="${barn.UserInfo.Mail}"></td>
+                    </a><br>
+                    <!--    <td th:text="${frage.UserInfo.Mail}"></td><br>-->
+                    <h5>Användarnamn:</h5>
+                    <td th:text="${barn.UserInfo.userName}"></td>
                 </div>
             </div>
->>>>>>> 18c6935e876ae3b581dedfecf9314e32758cb673
+            <br>
+            <br><br>
+
+        </div>
+    </div>
 </div>
+</div></div></div>
 
 <div th:replace="fragments2 :: footer2"></div>
 
@@ -82,7 +101,7 @@
     <div class="text-center">
         <div class="pagination2">
         <span th:if="${showPrev}">
-            <a th:href="'/barnspel?page=' + ${currentPage-1}">Previous</a>
+            <a th:href="'/barnspel?page=' + ${currentPage-1}">Bakåt</a>
         </span>
 
             <span th:each="page : ${pages}">
@@ -91,7 +110,7 @@
         </span>
 
             <span th:if="${showNext}">
-            <a th:href="'/barnspel?page=' + ${currentPage+1}">Next</a>
+            <a th:href="'/barnspel?page=' + ${currentPage+1}">Nästa</a>
         </span>
         </div>
     </div>
